@@ -1,7 +1,8 @@
-import Login  from './component/Login';
+
 import './App.css';
-//nikhil singh
+
 function App() {
+  //vijay
   return (
     <div className="App">
 <Login/>
