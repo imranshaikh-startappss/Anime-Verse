@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-// nikhil singh
+//nikhil singh
 function App() {
   return (
     <div className="App">
