@@ -1,0 +1,31 @@
+@import url('https://fonts.cdnfonts.com/css/modestic-sans');
+
+$var1-fnt-wt:400;
+$var2-fnt-sz:15px;
+$var3-pd-sz:15px;
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+header{
+    width: 100%;
+   
+    h1{
+    font-weight: $var1-fnt-wt;
+    padding-top: $var3-pd-sz;                            
+    }
+    h2{
+       font-weight: $var1-fnt-wt; 
+       width: 100%;
+       align-items: center;
+       font-size: $var2-fnt-sz;
+       padding-top: $var3-pd-sz; 
+        
+    }
+
+}
