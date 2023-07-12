@@ -16,6 +16,7 @@ import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
+import styled from "styled-components";
 
 const pages = ["Men", "Wonen", "Unisex", "Artist collab", "Collection"];
 // const settings = ["Profile", "Account", "Dashboard", "Logout"];
@@ -38,7 +39,12 @@ function Navbar() {
   //   const handleCloseUserMenu = () => {
   //     setAnchorElUser(null);
   //   };
-
+  const CustomizedButton = styled(Button)({
+    background: "none !important",
+    "&:hover": {
+      background: "none !important",
+    },
+  });
   return (
     <div className="HeaderNavbar">
       <AppBar
@@ -125,15 +131,18 @@ function Navbar() {
 
               <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
                 {pages.map((page) => (
-                  <Button
+                  <CustomizedButton
+                    className="NavbarItems"
                     key={page}
                     onClick={handleCloseNavMenu}
+                    disableRipple={true}
+                    disableElevation={true}
                     sx={{
                       my: 2,
                       color: "#000000",
                       display: "block",
                       fontSize: "14px",
-                      fontFamily: "cursive",
+                      fontFamily: "SF-Body-font",
                       textTransform: "initial",
                       fontWeight: "600",
                       marginRight: "10px",
@@ -143,19 +152,17 @@ function Navbar() {
                         content: '""',
                         display: "block",
                         borderRadius: "1px",
-                        marginBottom: "3px",
-                        background: "transperent ",
+                        marginBottom: "2px",
                       },
                       "&:hover::after": {
-                        borderBottom: "3px solid black",
+                        borderBottom: "2px solid black",
                         marginBottom: "0px",
-                        background: "transperent ",
                       },
                     }}
                   >
                     {page}
                     <KeyboardArrowDownIcon fontSize="small" />
-                  </Button>
+                  </CustomizedButton>
                 ))}
               </Box>
             </div>
@@ -174,7 +181,7 @@ function Navbar() {
                   textAlign: "center",
                   fontSize: "40px",
                   fontWeight: "bold",
-                  fontFamily: "cursive",
+                  fontFamily: "SF-Body-font",
                   color: "#000000",
                 }}
               >
@@ -188,11 +195,10 @@ function Navbar() {
                 justifyContent: "center",
                 alignItems: "center",
                 width: "20%",
-                background: "tran",
               }}
             >
               <Tooltip title="Search">
-                <IconButton>
+                <IconButton className="Tooltip">
                   <SearchIcon style={{ color: "#3d3d3d" }} />
                 </IconButton>
               </Tooltip>

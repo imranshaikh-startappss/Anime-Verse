@@ -1,4 +1,5 @@
 import React from "react";
+import "./Theme/Theme.scss";
 import Navbar from "./Header/Navbar";
 
 function App() {
