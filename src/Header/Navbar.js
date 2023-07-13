@@ -17,34 +17,33 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 import styled from "styled-components";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 
-const pages = ["Men", "Wonen", "Unisex", "Artist collab", "Collection"];
-// const settings = ["Profile", "Account", "Dashboard", "Logout"];
+const CustomizedButton = styled(Button)({
+  background: "none !important",
+  "&:hover": {
+    background: "none !important",
+  },
+});
 
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
-  //   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [pages, setPages] = React.useState([
+    { label: "Men" },
+    { label: "Women" },
+    { label: "Unisex" },
+    { label: "Artist collab" },
+    { label: "Collection" },
+  ]);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
-  //   const handleOpenUserMenu = (event) => {
-  //     setAnchorElUser(event.currentTarget);
-  //   };
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
 
-  //   const handleCloseUserMenu = () => {
-  //     setAnchorElUser(null);
-  //   };
-  const CustomizedButton = styled(Button)({
-    background: "none !important",
-    "&:hover": {
-      background: "none !important",
-    },
-  });
   return (
     <div className="HeaderNavbar">
       <AppBar
@@ -91,14 +90,14 @@ function Navbar() {
                     display: { xs: "block", md: "none" },
                   }}
                 >
-                  {pages.map((page) => (
-                    <MenuItem key={page} onClick={handleCloseNavMenu}>
+                  {pages.map((page, index) => (
+                    <MenuItem key={index} onClick={handleCloseNavMenu}>
                       <Typography
                         sx={{
                           width: "300px",
                         }}
                       >
-                        {page}
+                        {page.label}
                         <span>
                           <KeyboardArrowRightIcon
                             sx={{
@@ -130,10 +129,10 @@ function Navbar() {
               ></Typography>
 
               <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-                {pages.map((page) => (
+                {pages.map((page, index) => (
                   <CustomizedButton
                     className="NavbarItems"
-                    key={page}
+                    key={page.label + index}
                     onClick={handleCloseNavMenu}
                     disableRipple={true}
                     disableElevation={true}
@@ -145,7 +144,7 @@ function Navbar() {
                       fontFamily: "SF-Body-font",
                       textTransform: "initial",
                       fontWeight: "600",
-                      marginRight: "10px",
+                      marginRight: "1px",
                       boxSizing: "border-box",
 
                       "&::after": {
@@ -159,9 +158,53 @@ function Navbar() {
                         marginBottom: "0px",
                       },
                     }}
+                    onMouseOver={() => {
+                      let pagesTemp = JSON.parse(JSON.stringify(pages));
+                      pagesTemp = pagesTemp.map((item, subindex) => {
+                        if (subindex === index) {
+                          item.isSelected = true;
+                          // console.log(0);
+                        } else {
+                          item.isSelected = false;
+                          // console.log(1);
+                        }
+                        return item;
+                      });
+                      setTimeout(() => {
+                        setPages(pagesTemp);
+                      }, 100);
+                    }}
+                    onMouseOut={() => {
+                      let pagesTemp = JSON.parse(JSON.stringify(pages));
+                      pagesTemp = pagesTemp.map((item, subindex) => {
+                        item.isSelected = false;
+                        return item;
+                      });
+                      setTimeout(() => {
+                        setPages(pagesTemp);
+                      }, 100);
+                    }}
                   >
-                    {page}
-                    <KeyboardArrowDownIcon fontSize="small" />
+                    {page.label}
+                    {/* {
+                      <KeyboardArrowDownIcon
+                        style={
+                          page?.isSelected
+                            ? {
+                                transform: "rotate(180deg)",
+                              }
+                            : {}
+                        }
+                        fontSize="small"
+                      />
+                    } */}
+                    {/* <KeyboardArrowDownIcon fontSize="small"> */}
+                    {page?.isSelected ? (
+                      <KeyboardArrowUpIcon fontSize="small" />
+                    ) : (
+                      <KeyboardArrowDownIcon fontSize="small" />
+                    )}
+                    {/* </KeyboardArrowDownIcon> */}
                   </CustomizedButton>
                 ))}
               </Box>
@@ -179,7 +222,7 @@ function Navbar() {
                 sx={{
                   display: "flex",
                   textAlign: "center",
-                  fontSize: "40px",
+                  fontSize: "30px",
                   fontWeight: "bold",
                   fontFamily: "SF-Body-font",
                   color: "#000000",
