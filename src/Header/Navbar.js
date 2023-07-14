@@ -18,6 +18,7 @@ import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 import styled from "styled-components";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import Popover from "@mui/material/Popover";
 
 const CustomizedButton = styled(Button)({
   background: "none !important",
@@ -29,12 +30,56 @@ const CustomizedButton = styled(Button)({
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [pages, setPages] = React.useState([
-    { label: "Men" },
+    {
+      label: "Men",
+      menuOptions: {
+        Clothing: [
+          "New in",
+          "View all",
+          "T-Shirts",
+          "Jackets & Coats",
+          "Hoodies & Sweatshirts",
+          "Shorts",
+          "Co-ord sets",
+          "Gift card",
+        ],
+        Footwear: ["View all", "Sneakers", "Slider"],
+        Accessories: ["Sunglasses", "Pins"],
+        Brands: [
+          "Adidas",
+          "New Balance",
+          "Essentials by Koovs",
+          "BALL Copenhagen",
+          "Bravesoul",
+          "The couture club",
+          "Arkk copenhagen",
+          "SHU",
+          "Nike",
+          "Tigerbear",
+          "Keen",
+          "Sive",
+          "Kangol",
+          "Comatoes",
+        ],
+      },
+    },
     { label: "Women" },
     { label: "Unisex" },
     { label: "Artist collab" },
     { label: "Collection" },
   ]);
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const open = Boolean(anchorEl);
+  const id = open ? "simple-popover" : undefined;
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -46,6 +91,18 @@ function Navbar() {
 
   return (
     <div className="HeaderNavbar">
+      <Popover
+        id={id}
+        open={open}
+        anchorEl={anchorEl}
+        onClose={handleClose}
+        anchorOrigin={{
+          vertical: "bottom",
+          horizontal: "left",
+        }}
+      >
+        <Typography sx={{ p: 2 }}>The content of the Popover.</Typography>
+      </Popover>
       <AppBar
         position="static"
         style={{ backgroundColor: "white", color: "black" }}
@@ -127,15 +184,12 @@ function Navbar() {
                   textDecoration: "none",
                 }}
               ></Typography>
-
               <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
                 {pages.map((page, index) => (
                   <CustomizedButton
                     className="NavbarItems"
                     key={page.label + index}
-                    onClick={handleCloseNavMenu}
-                    disableRipple={true}
-                    disableElevation={true}
+                    // onClick={handleCloseNavMenu}
                     sx={{
                       my: 2,
                       color: "#000000",
@@ -158,7 +212,8 @@ function Navbar() {
                         marginBottom: "0px",
                       },
                     }}
-                    onMouseOver={() => {
+                    onMouseOver={(e) => {
+                      handleClick(e);
                       let pagesTemp = JSON.parse(JSON.stringify(pages));
                       pagesTemp = pagesTemp.map((item, subindex) => {
                         if (subindex === index) {
@@ -186,25 +241,12 @@ function Navbar() {
                     }}
                   >
                     {page.label}
-                    {/* {
-                      <KeyboardArrowDownIcon
-                        style={
-                          page?.isSelected
-                            ? {
-                                transform: "rotate(180deg)",
-                              }
-                            : {}
-                        }
-                        fontSize="small"
-                      />
-                    } */}
-                    {/* <KeyboardArrowDownIcon fontSize="small"> */}
+
                     {page?.isSelected ? (
                       <KeyboardArrowUpIcon fontSize="small" />
                     ) : (
                       <KeyboardArrowDownIcon fontSize="small" />
                     )}
-                    {/* </KeyboardArrowDownIcon> */}
                   </CustomizedButton>
                 ))}
               </Box>

@@ -1,11 +1,11 @@
 import React from "react";
-import "./Theme/Theme.scss";
-import Navbar from "./Header/Navbar";
+import "./Theme/index.scss";
+import Router from "./component/Router";
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
+      <Router />
     </div>
   );
 }
