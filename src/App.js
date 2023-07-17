@@ -1,9 +1,10 @@
-import './App.css';
+import React from 'react';
+import './Theme/Theme.scss';
 import Footer from './components/Footer';
 
 
 function App() {
-  //vijay
+  
   return (
     <div className="footerDiv">
 
