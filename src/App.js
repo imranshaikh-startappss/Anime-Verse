@@ -1,18 +1,10 @@
-import React from 'react';
-import './Theme/Theme.scss';
-import Footer from './components/Footer';
+import React from "react";
+import Router from "./component/Router";
+
 
 
 function App() {
-  
-  return (
-    <div className="footerDiv">
-
-    <Footer/>
-  
-
-    </div>
-  );
+  return <Router />;
 }
 
 export default App;
