@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const StyleFooter = styled.div`
+export const StyleFooter = styled.div`
 
 footer {
     padding: 5rem 0;
@@ -102,6 +102,3 @@ ${'' /*
 
 `
 
-export const data = {
-  StyleFooter,
-}

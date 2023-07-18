@@ -1,11 +1,11 @@
 import React from "react";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import EastIcon from "@mui/icons-material/East";
-import {data} from "./styled";
+import { StyleFooter } from "./styled";
 import TextField from "@mui/material/TextField";
 
+
 function Footer() { 
-  const {StyleFooter} = data
   return (
     <StyleFooter>
       <footer>

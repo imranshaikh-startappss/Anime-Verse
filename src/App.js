@@ -1,5 +1,6 @@
 import React from "react";
-import Router from "./component/Router";
+import "./Theme/Theme.scss";
+import Router from "./components/Router/Router";
 
 
 
