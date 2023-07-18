@@ -1,11 +1,13 @@
-import Login  from './component/Login';
-import './App.css';
-//nikhil singh
+import "./App.css";
+import Home from "../src/components/Home/Home";
+
+
 function App() {
+  
   return (
     <div className="App">
-<Login/>
-
+      <Home/>
+     
     </div>
   );
 }
