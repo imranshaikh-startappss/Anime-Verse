@@ -1,9 +1,9 @@
 import React from 'react'
-import Div  from './StyledHome'
+import {Div}  from './styled'
 
 const Home = () => {
   return (
-    <Div bgcolor= "red">
+    <Div>
     home
     </Div>
   )
