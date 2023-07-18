@@ -1,5 +1,5 @@
 import React from "react";
-import "./Theme/index.scss";
+import "./Theme/Theme.scss";
 import Router from "./component/Router";
 
 function App() {
