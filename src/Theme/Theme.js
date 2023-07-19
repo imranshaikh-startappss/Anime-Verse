@@ -1,7 +1,5 @@
-
-
 export const Theme = {
-    Colors:{
-        primary:"red"
-    }
-}
+  Colors: {
+    hover: "#999999",
+  },
+};
