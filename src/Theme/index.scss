@@ -7,16 +7,16 @@
     width: $width;
 }
 .Header-items{
-    width: 40%;
-    // @media screen and (min-width: 350px){
+    width: 45%;
+    // @media only screen and (max-width: 600px) and (min-width: 350px){
     //     .Header-items{
-    //         width: 10%;
+    //         @include flexbox(20px)
     //     }
     // }
 }
 
 .logo{
-    @include flexbox(40%);
+    @include flexbox(35%);
     .logoTypography{
         text-align: center;
         font-size: 1.6rem;
@@ -24,8 +24,8 @@
         font-family: SF-Body-font;
         color: #000000;
         // @media (min-width: 350px){
-        //     @include flexbox(60%);
-        //     display: inline-block;
+        //     @include flexbox(100%);
+        //     justify-content: first baseline;
         // }
     }
 }
@@ -40,18 +40,18 @@
     background: none !important;
     border: none !important;
     
-    .a.p-menuitem-link{
-        background-color: transparent;
-    }
-    a.p-menuitem-link:hover{
-        background-color: transparent !important;
-        border-radius: none !important;
-    }
-    .p-menuitem{
-        border-radius: transperent !important; 
-    }
-    .p-menuitem:hover{
-        border-radius: transperent !important;
-    }
+    // .a.p-menuitem-link{
+    //     background-color: transparent;
+    // }
+    // a.p-menuitem-link:hover{
+    //     background-color: transparent !important;
+    //     border-radius: none !important;
+    // }
+    // .p-menuitem{
+    //     border-radius: transperent !important; 
+    // }
+    // .p-menuitem:hover{
+    //     border-radius: transperent !important;
+    // }
   
 }

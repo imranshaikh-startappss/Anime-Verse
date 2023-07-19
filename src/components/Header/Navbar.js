@@ -1,6 +1,6 @@
 import * as React from "react";
 import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
+
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
@@ -28,7 +28,7 @@ const CustomizedAppBar = styled(AppBar)({
 
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [pages, setPages] = React.useState([
+  const pages = [
     {
       label: "Men",
       items: [
@@ -46,6 +46,8 @@ function Navbar() {
               { label: "Gift card" },
             ],
           },
+        ],
+        [
           {
             label: "Footwear",
             items: [
@@ -54,10 +56,14 @@ function Navbar() {
               { label: "Slider" },
             ],
           },
+        ],
+        [
           {
             label: "Accessories",
             items: [{ label: "Sunglasses" }, { label: "Pins" }],
           },
+        ],
+        [
           {
             label: "Brands",
             items: [
@@ -70,11 +76,11 @@ function Navbar() {
               { label: "Arkk copenhagen" },
               { label: "SHU" },
               { label: "Nike" },
-              { label: "Tigerbear" },
-              { label: "Keen" },
-              { label: "Sive" },
-              { label: "Kangol" },
-              { label: "Comatoes" },
+              // { label: "Tigerbear" },
+              // { label: "Keen" },
+              // { label: "Sive" },
+              // { label: "Kangol" },
+              // { label: "Comatoes" },
             ],
           },
         ],
@@ -101,6 +107,8 @@ function Navbar() {
               { label: "Shorts" },
             ],
           },
+        ],
+        [
           {
             label: "Shoes",
             items: [
@@ -112,6 +120,8 @@ function Navbar() {
               { label: "Boots" },
             ],
           },
+        ],
+        [
           {
             label: "Brands",
             items: [
@@ -124,12 +134,14 @@ function Navbar() {
               { label: "KDenim" },
               { label: "Public desire" },
               { label: "Keen" },
-              { label: "SHU" },
-              { label: "Arkk copenhagen" },
-              { label: "The couture club" },
-              { label: "Nike" },
+              // { label: "SHU" },
+              // { label: "Arkk copenhagen" },
+              // { label: "The couture club" },
+              // { label: "Nike" },
             ],
           },
+        ],
+        [
           {
             label: "Accesssories",
             items: [
@@ -158,10 +170,14 @@ function Navbar() {
               { label: "Outerwear" },
             ],
           },
+        ],
+        [
           {
             label: "Footwear",
             items: [{ label: "Slides" }],
           },
+        ],
+        [
           {
             label: "Accessories",
             items: [
@@ -205,7 +221,7 @@ function Navbar() {
     //     ],
     //   ],
     // },
-  ]);
+  ];
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -248,7 +264,7 @@ function Navbar() {
                   open={Boolean(anchorElNav)}
                   onClose={handleCloseNavMenu}
                   sx={{
-                    display: { xs: "block", md: "none" },
+                    display: { xs: "block" },
                   }}
                 >
                   {pages.map((page, index) => (
@@ -275,12 +291,18 @@ function Navbar() {
               {/* </Box> */}
               {/* <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}> */}
               <div className="d-none d-lg-flex flex-grow-1">
-                <MegaMenu model={pages} className="MegaMenu" />
+                {/* <div className="d-lg-none d-md-flex flex-grow-1"> */}
+                <MegaMenu
+                  model={pages}
+                  orientation="horizontal"
+                  breakpoint="96px"
+                  className="MegaMenu"
+                />
               </div>
               {/* </Box> */}
             </div>
-            <div className="logo">
-              <Typography className="logoTypography">Anime Verse</Typography>
+            <div className="logo justify-content-start">
+              <Typography className="logoTypography">Anime</Typography>
             </div>
             <div className="search_section col-md-1 d-flex justify-content-end">
               <Tooltip title="Search" className="d-flex justify-content-center">
