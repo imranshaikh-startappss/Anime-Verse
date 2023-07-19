@@ -1,6 +1,7 @@
 
+
 export const Theme = {
     Colors:{
-        primary:"#fff"
+        primary:"red"
     }
 }
