@@ -3,6 +3,9 @@ import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import EastIcon from "@mui/icons-material/East";
 import { StyleFooter } from "./styled";
 import TextField from "@mui/material/TextField";
+import {Ullist} from "../footer/styled/index.js";
+import SubscriptionForm from "../subscribe/styled/subscribe";
+
 
 
 function Footer() { 
@@ -13,10 +16,10 @@ function Footer() {
           <div className="row">
             <div className="col ">
               <div className="row">
-                <div className="col">
+                <div className="col  text-start">
                   <h5>About</h5>
-                  <br></br>
-                  <ul>
+                  
+                  <Ullist className=" ullist ">
                     <li>
                       <a href="#">Our story</a>
                     </li>
@@ -29,13 +32,13 @@ function Footer() {
                     <li>
                       <a href="#">Privacy policy</a>
                     </li>
-                  </ul>
+                  </Ullist>
                 </div>
 
                 <div className="col">
                   <h5>Support</h5>
-                  <br></br>
-                  <ul>
+              
+                  <Ullist className="ullist">
                     <li>
                       <a href="#">Payments</a>
                     </li>
@@ -43,16 +46,16 @@ function Footer() {
                       <a href="#">Returns/Exchange</a>
                     </li>
                     <li>
-                      <a href="#">Shipment</a>
+                    <a href="#">Shipment</a>
                     </li>
                     <li>
-                      <a href="#">Terms & conditions</a>
+                    <a href="#">Terms & conditions</a>
                     </li>
-                  </ul>
+                  </Ullist>
                 </div>
 
                 <div className="col">
-                  <h5>Services</h5>
+                  <h5>Customer care</h5>
                   <br></br>
                   <span>
                     Timings:10-6PM(Mon-Sat)<br></br>
@@ -61,15 +64,18 @@ function Footer() {
                   </span>
                 </div>
 
-                <div className="col">
+                <div className="col"> 
+                
                   <h5>Subscribe</h5>
                   <br></br>
                   <span>
                     Enter your email below to be the first to know about new
-                    collections and product launches
+                    collections and product launches.
                   </span>
                   <br></br>
                   <br></br>
+
+                  <SubscriptionForm/>
 {/* 
                   <div>
                     <MailOutlineIcon />

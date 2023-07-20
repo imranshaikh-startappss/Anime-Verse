@@ -1,10 +1,22 @@
 import styled from "styled-components";
 
-const Style=styled.h1`
- text-align:center;
- 
-`
+const LoginStyle = styled.div`
+ .container {
+    text-align:center;
+    
 
-export const data  = { 
-    Style,
+
+ .icon{height:10px};
+
+.mouse:hover{
+    color:${(props) => props.theme.Colors.hover};
+     cursor: pointer;
+     } 
+     
+ }
+
+
+`
+export const data = {
+    LoginStyle,
 }

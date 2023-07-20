@@ -2,35 +2,49 @@ import styled from "styled-components";
 
 export const StyleFooter = styled.div`
 
+font-family:Imported_footer;
+
 footer {
     padding: 5rem 0;
     background-color:#f5f5f5 ;
 
   }
-  footer h2 {
-    color:rgb(38, 36, 36);
+  footer h5 {
+    
+    font-weight:600;
+    font-size:14px;
+    
+  }
+  p{
+    font-weight:300;
+    font-size:13px;
+    color:rgb(77, 77, 77);
+    line-height:18px;
   }
   
 
 footer li {
     list-style: none;
-    font-weight: lighter;
+    ${'' /* font-weight: lighter; */}
     cursor: pointer;
-    margin: 1rem 0;
+    margin: 0.5rem 0;
+    
   }
 
   a{
     text-decoration: none;
-    color:rgb(56, 54, 54);
-    font-size:13px;
+    color:rgb(125, 124, 124);
     font-weight:400;
+    font-size:14px;
+   line-height:24px;
+
   }
 
 
   a:hover {
     display: inline-block;
     position: relative;
-    color:rgb(56, 54, 54);
+    color:black;
   }
   
   a:after {
@@ -41,7 +55,7 @@ footer li {
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color:rgb(56, 54, 54);
+    background-color:black;
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
   }
@@ -54,11 +68,15 @@ footer li {
   span{ 
 
     font-weight:400;
-    font-size:15px;
-    color:rgb(56, 54, 54);
+    font-size:14px;
+    color:rgb(125, 124, 124);
   }
+  ${'' /* h5{
+    font-weight:bold;
+    font-size:15px;
+  } */}
 
-  form{
+  ${'' /* form{
    padding-bottom:15px;
    display:flex;
    align-item:center;
@@ -71,7 +89,9 @@ footer li {
   .mail{
     text-align:center;
 
-  }
+  } */}
+
+
 ${'' /* 
   input{
     width:100%;
@@ -101,4 +121,15 @@ ${'' /*
   } */}
 
 `
+export const Ullist= styled.ul`
+  padding-left:0 !important;
+  padding-top:5px;
+`
 
+// export const li = styled.li`
+// style:normal;
+// font-weight:400;
+// font-size:14px;
+// color:#000000;
+// line-height:24px;
+// `
