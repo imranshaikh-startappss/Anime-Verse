@@ -1,5 +1,5 @@
 import React from "react";
-import StyledVideoPage from './StyledVideoPage'
+import {StyledVideoPage} from './styled/index.js'
 
 const VideoPage = ({src,content,loadingbtn}) => {
     
