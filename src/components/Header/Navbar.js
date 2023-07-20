@@ -1,10 +1,8 @@
 import * as React from "react";
 import AppBar from "@mui/material/AppBar";
-
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Tooltip from "@mui/material/Tooltip";
@@ -19,6 +17,10 @@ import "primereact/resources/themes/lara-light-indigo/theme.css";
 import "primereact/resources/primereact.min.css";
 import "primeicons/primeicons.css";
 import styled from "styled-components";
+import Drawer from "@mui/material/Drawer";
+import Button from "@mui/material/Button";
+import { TextField } from "@mui/material";
+import InputAdornment from "@mui/material/InputAdornment";
 
 const CustomizedAppBar = styled(AppBar)({
   position: "static",
@@ -28,6 +30,8 @@ const CustomizedAppBar = styled(AppBar)({
 
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const [selectedMainMenuIndex, setselectedMainMenuIndex] = React.useState("");
+
   const pages = [
     {
       label: "Men",
@@ -231,67 +235,76 @@ function Navbar() {
     setAnchorElNav(null);
   };
 
+  const handleClickNavmainMenu = (index) => {
+    setselectedMainMenuIndex(index);
+  };
+
   return (
     <div className="HeaderNavbar">
       <CustomizedAppBar>
         <Container maxWidth="xl">
           <Toolbar disableGutters>
             <div className="Header-items">
-              {/* <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}> */}
               <div className="d-lg-none d-md-flex flex-grow-1">
-                <IconButton
-                  size="large"
-                  aria-label="account of current user"
-                  aria-controls="menu-appbar"
-                  aria-haspopup="true"
-                  onClick={handleOpenNavMenu}
-                  color="inherit"
-                >
+                <IconButton onClick={handleOpenNavMenu}>
                   <MenuIcon />
                 </IconButton>
-                <Menu
-                  id="menu-appbar"
-                  anchorEl={anchorElNav}
-                  anchorOrigin={{
-                    vertical: "bottom",
-                    horizontal: "left",
-                  }}
-                  keepMounted
-                  transformOrigin={{
-                    vertical: "top",
-                    horizontal: "left",
-                  }}
+                <Drawer
                   open={Boolean(anchorElNav)}
                   onClose={handleCloseNavMenu}
-                  sx={{
-                    display: { xs: "block" },
-                  }}
                 >
-                  {pages.map((page, index) => (
-                    <MenuItem key={index} onClick={handleCloseNavMenu}>
-                      <Typography
-                        sx={{
-                          width: "300px",
-                        }}
-                      >
-                        {page.label}
-                        <span>
-                          <KeyboardArrowRightIcon
+                  {selectedMainMenuIndex === ""
+                    ? pages.map((page, index) => (
+                        <MenuItem
+                          key={index}
+                          onClick={() => {
+                            handleClickNavmainMenu(index);
+                          }}
+                        >
+                          <Typography
                             sx={{
-                              fontSize: "20px",
-                              textAlign: "end",
+                              width: "18.75rem",
+                              display: "flex",
+                              justifyContent: "space-between",
+                              padding: "15px 0px",
                             }}
-                          />
-                        </span>
-                      </Typography>
-                    </MenuItem>
-                  ))}
-                </Menu>
+                          >
+                            {page.label}
+                            <KeyboardArrowRightIcon />
+                          </Typography>
+                        </MenuItem>
+                      ))
+                    : pages?.[selectedMainMenuIndex]?.items?.map(
+                        (subPage, subIndex) => (
+                          <MenuItem
+                            key={subIndex}
+                            onClick={() => {
+                              // handleClickNavmainMenu(subIndex);
+                            }}
+                          >
+                            <Typography
+                              sx={{
+                                width: "18.75rem",
+                                display: "flex",
+                                justifyContent: "space-between",
+                                padding: "15px 0px",
+                              }}
+                            >
+                              {subPage[0]?.label}
+                              <KeyboardArrowRightIcon />
+                            </Typography>
+                          </MenuItem>
+                        )
+                      )}
+                  <Typography>
+                    <h1>My Account</h1>
+                    <Button variant="contained">Login</Button>
+                    <br />
+                    <Button variant="contained">Register</Button>
+                  </Typography>
+                </Drawer>
               </div>
-              {/* </Box> */}
-              {/* <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}> */}
               <div className="d-none d-lg-flex flex-grow-1">
-                {/* <div className="d-lg-none d-md-flex flex-grow-1"> */}
                 <MegaMenu
                   model={pages}
                   orientation="horizontal"
@@ -299,7 +312,6 @@ function Navbar() {
                   className="MegaMenu"
                 />
               </div>
-              {/* </Box> */}
             </div>
             <div className="logo justify-content-start">
               <Typography className="logoTypography">Anime</Typography>
@@ -333,6 +345,59 @@ function Navbar() {
               </Tooltip>
             </div>
           </Toolbar>
+        </Container>
+      </CustomizedAppBar>
+      <CustomizedAppBar>
+        <Container maxWidth="xl">
+          <div className="row">
+            <div className="d-flex mt-3">
+              <div className="d-md-flex d-none d-sm-none justify-content-start col-lg-2 col-md-2">
+                <h1>
+                  <b>koovs</b>
+                </h1>
+              </div>
+              <div className="d-flex justify-content-center col-lg-8 col-md-8 col-sm-12 col-xs-12 pt-2">
+                <TextField
+                  id="outlined-basic"
+                  label="Search"
+                  variant="outlined"
+                  className="InputField"
+                  size="small"
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position="end">
+                        <SearchIcon />
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+              </div>
+              <div className="d-md-flex d-none d-sm-none justify-content-end col-lg-2 col-md-2">
+                <Tooltip title="Account" className="header-search-items">
+                  <IconButton>
+                    <PersonOutlineIcon />
+                  </IconButton>
+                </Tooltip>
+                <Tooltip title="Wishlist" className="header-search-items">
+                  <IconButton>
+                    <StarBorderIcon />
+                  </IconButton>
+                </Tooltip>
+                <Tooltip title="Cart" className="header-search-items">
+                  <IconButton>
+                    <ShoppingBagOutlinedIcon />
+                  </IconButton>
+                </Tooltip>
+              </div>
+            </div>
+            <div className="Search-Btn text-center">
+              <p>
+                Popular Searches : <Button>T-Shirt</Button>
+                <Button>Blue</Button>
+                <Button>Jacket</Button>
+              </p>
+            </div>
+          </div>
         </Container>
       </CustomizedAppBar>
     </div>

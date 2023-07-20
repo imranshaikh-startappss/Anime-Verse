@@ -218,3 +218,47 @@ const DropDown = (props) => {
   );
 };
 export default DropDown;
+{
+  selectedMainMenuIndex === ""
+    ? pages.map((page, index) => (
+        <MenuItem
+          key={index}
+          onClick={() => {
+            handleClickNavmainMenu(index);
+          }}
+        >
+          <Typography
+            sx={{
+              width: "18.75rem",
+              display: "flex",
+              justifyContent: "space-between",
+              padding: "15px 0px",
+            }}
+          >
+            {page.label}
+            <KeyboardArrowRightIcon />
+          </Typography>
+        </MenuItem>
+      ))
+    : pages?.[selectedMainMenuIndex]?.items?.map((subPage, subIndex) => (
+        <MenuItem
+          key={subIndex}
+          onClick={() => {
+            // handleClickNavmainMenu(subIndex);
+          }}
+        >
+          <Typography
+            sx={{
+              width: "18.75rem",
+              display: "flex",
+              justifyContent: "space-between",
+              // marginTop: "20px",
+              padding: "15px 0px",
+            }}
+          >
+            {subPage[0]?.label}
+            <KeyboardArrowRightIcon />
+          </Typography>
+        </MenuItem>
+      ));
+}
