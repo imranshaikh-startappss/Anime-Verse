@@ -3,12 +3,13 @@ import styled from "styled-components";
 export const StyledSubsc = styled.div`
 
 form{
-    padding-bottom:15px;
+    ${'' /* padding-bottom:20px; */}
+
    display:flex;
    align-item:center;
    justify-content:space-between;
   
-   margin-bottom:80px;
+   margin-bottom:50px;
 }
 
 input{
@@ -33,6 +34,13 @@ input{
     outline:none;
     background:white;
     padding-top:6px;
+    padding-right:10px;
+    
 }
   
+  p{
+    color:green;
+    background:white;
+    font-size:14px;
+  }
 `

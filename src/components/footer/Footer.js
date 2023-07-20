@@ -12,11 +12,11 @@ function Footer() {
   return (
     <StyleFooter>
       <footer>
-        <div className="container">
+        <div className="section">
           <div className="row">
             <div className="col ">
               <div className="row">
-                <div className="col  text-start">
+                <div className="col p-5 ">
                   <h5>About</h5>
                   
                   <Ullist className=" ullist ">
@@ -35,7 +35,7 @@ function Footer() {
                   </Ullist>
                 </div>
 
-                <div className="col">
+                <div className="col p-5">
                   <h5>Support</h5>
               
                   <Ullist className="ullist">
@@ -54,7 +54,7 @@ function Footer() {
                   </Ullist>
                 </div>
 
-                <div className="col">
+                <div className="col p-5">
                   <h5>Customer care</h5>
                   <br></br>
                   <span>
@@ -64,7 +64,7 @@ function Footer() {
                   </span>
                 </div>
 
-                <div className="col"> 
+                <div className="col p-5"> 
                 
                   <h5>Subscribe</h5>
                   <br></br>
@@ -90,7 +90,7 @@ function Footer() {
                 </div>
               </div>
               <hr />
-              <div className="mt-5">
+              <div className="mt-4">
                 <p className="main-hero-para text-center w-100">
                   © STARTAPPSS INDIA PRIVATE LIMITED
                 </p>

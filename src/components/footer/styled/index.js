@@ -8,6 +8,9 @@ footer {
     padding: 5rem 0;
     background-color:#f5f5f5 ;
 
+    
+    
+
   }
   footer h5 {
     
@@ -19,7 +22,8 @@ footer {
     font-weight:300;
     font-size:13px;
     color:rgb(77, 77, 77);
-    line-height:18px;
+    line-height:15px;
+    
   }
   
 
@@ -29,7 +33,19 @@ footer li {
     cursor: pointer;
     margin: 0.5rem 0;
     
+    
+    
   }
+
+.col{
+  ${'' /* border-right:1px solid rgb(77, 77, 77); */}
+  ${'' /* border-right:1px solid #a6a6a6; */}
+  border-right:1px solid rgb(166 166 166 / 46%);
+  padding-left:40px;
+}
+
+
+
 
   a{
     text-decoration: none;
