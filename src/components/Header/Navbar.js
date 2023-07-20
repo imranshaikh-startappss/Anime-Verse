@@ -1,85 +1,227 @@
 import * as React from "react";
 import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
+
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
-import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import SearchIcon from "@mui/icons-material/Search";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
+import { MegaMenu } from "primereact/megamenu";
+import "primereact/resources/themes/lara-light-indigo/theme.css";
+import "primereact/resources/primereact.min.css";
+import "primeicons/primeicons.css";
 import styled from "styled-components";
-import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-import Popover from "@mui/material/Popover";
 
-const CustomizedButton = styled(Button)({
-  background: "none !important",
-  "&:hover": {
-    background: "none !important",
-  },
+const CustomizedAppBar = styled(AppBar)({
+  position: "static",
+  backgroundColor: "white !important",
+  color: "black !important",
 });
 
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [pages, setPages] = React.useState([
+  const pages = [
     {
       label: "Men",
-      menuOptions: {
-        Clothing: [
-          "New in",
-          "View all",
-          "T-Shirts",
-          "Jackets & Coats",
-          "Hoodies & Sweatshirts",
-          "Shorts",
-          "Co-ord sets",
-          "Gift card",
+      items: [
+        [
+          {
+            label: "Clothing",
+            items: [
+              { label: "New in" },
+              { label: "View all" },
+              { label: "T-Shirts" },
+              { label: "Jackets & Coats" },
+              { label: "Hoodies & Sweatshirts" },
+              { label: "Shorts" },
+              { label: "Co-ord sets" },
+              { label: "Gift card" },
+            ],
+          },
         ],
-        Footwear: ["View all", "Sneakers", "Slider"],
-        Accessories: ["Sunglasses", "Pins"],
-        Brands: [
-          "Adidas",
-          "New Balance",
-          "Essentials by Koovs",
-          "BALL Copenhagen",
-          "Bravesoul",
-          "The couture club",
-          "Arkk copenhagen",
-          "SHU",
-          "Nike",
-          "Tigerbear",
-          "Keen",
-          "Sive",
-          "Kangol",
-          "Comatoes",
+        [
+          {
+            label: "Footwear",
+            items: [
+              { label: "View all" },
+              { label: "Sneakers" },
+              { label: "Slider" },
+            ],
+          },
         ],
-      },
+        [
+          {
+            label: "Accessories",
+            items: [{ label: "Sunglasses" }, { label: "Pins" }],
+          },
+        ],
+        [
+          {
+            label: "Brands",
+            items: [
+              { label: "Adidas" },
+              { label: "New Balance" },
+              { label: "Essentials by Koovs" },
+              { label: "BALL Copenhagen" },
+              { label: "Bravesoul" },
+              { label: "The couture club" },
+              { label: "Arkk copenhagen" },
+              { label: "SHU" },
+              { label: "Nike" },
+              // { label: "Tigerbear" },
+              // { label: "Keen" },
+              // { label: "Sive" },
+              // { label: "Kangol" },
+              // { label: "Comatoes" },
+            ],
+          },
+        ],
+      ],
     },
-    { label: "Women" },
-    { label: "Unisex" },
-    { label: "Artist collab" },
-    { label: "Collection" },
-  ]);
-  const [anchorEl, setAnchorEl] = React.useState(null);
-
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
-  const open = Boolean(anchorEl);
-  const id = open ? "simple-popover" : undefined;
+    {
+      label: "Women",
+      items: [
+        [
+          {
+            label: "Clothing",
+            items: [
+              { label: "New in" },
+              { label: "View all" },
+              { label: "Lounge & sleep wear" },
+              { label: "Lingerie & innerwear" },
+              { label: "Tops" },
+              { label: "T-Shirts" },
+              { label: "Sweatshirts" },
+              { label: "Bodysuit" },
+              { label: "Outerwear" },
+              { label: "Jeans" },
+              { label: "Dress" },
+              { label: "Shorts" },
+            ],
+          },
+        ],
+        [
+          {
+            label: "Shoes",
+            items: [
+              { label: "New in" },
+              { label: "View all" },
+              { label: "Sneakers" },
+              { label: "Heels" },
+              { label: "Sliders & flip flops" },
+              { label: "Boots" },
+            ],
+          },
+        ],
+        [
+          {
+            label: "Brands",
+            items: [
+              { label: "Adidas" },
+              { label: "New Balance" },
+              { label: "Bravesoul" },
+              { label: "Koovs sport" },
+              { label: "Tigerbear" },
+              { label: "Koovs" },
+              { label: "KDenim" },
+              { label: "Public desire" },
+              { label: "Keen" },
+              // { label: "SHU" },
+              // { label: "Arkk copenhagen" },
+              // { label: "The couture club" },
+              // { label: "Nike" },
+            ],
+          },
+        ],
+        [
+          {
+            label: "Accesssories",
+            items: [
+              { label: "Sunglasses" },
+              { label: "Pins" },
+              { label: "Caps & Hats" },
+            ],
+          },
+        ],
+      ],
+    },
+    {
+      label: "Unisex",
+      items: [
+        [
+          {
+            label: "Clothing",
+            items: [
+              { label: "New In" },
+              { label: "View all" },
+              { label: "T-shirts" },
+              { label: "Sweatshirts and Hoodies" },
+              { label: "Joggers" },
+              { label: "Pants" },
+              { label: "Shorts" },
+              { label: "Outerwear" },
+            ],
+          },
+        ],
+        [
+          {
+            label: "Footwear",
+            items: [{ label: "Slides" }],
+          },
+        ],
+        [
+          {
+            label: "Accessories",
+            items: [
+              { label: "View all" },
+              { label: "Caps and Hats" },
+              { label: "Sunglasses" },
+            ],
+          },
+        ],
+      ],
+    },
+    {
+      label: "Artist collab",
+      items: [
+        [
+          {
+            label: "Brands",
+            items: [{ label: "George Thomas" }, { label: "Boomranng" }],
+          },
+        ],
+      ],
+    },
+    // {
+    //   label: "Collection",
+    //   items: [
+    //     [
+    //       {
+    //         label: "Brands",
+    //         items: [
+    //           { label: "Neon Range" },
+    //           { label: "Y2K" },
+    //           { label: "Goof fest" },
+    //           { label: "Summer Tees" },
+    //           { label: "Varsity" },
+    //           { label: "Retrograde" },
+    //           { label: "Field day" },
+    //           { label: "Supernove" },
+    //           { label: "General store" },
+    //         ],
+    //       },
+    //     ],
+    //   ],
+    // },
+  ];
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -91,34 +233,12 @@ function Navbar() {
 
   return (
     <div className="HeaderNavbar">
-      <Popover
-        id={id}
-        open={open}
-        anchorEl={anchorEl}
-        onClose={handleClose}
-        anchorOrigin={{
-          vertical: "bottom",
-          horizontal: "left",
-        }}
-      >
-        <Typography sx={{ p: 2 }}>The content of the Popover.</Typography>
-      </Popover>
-      <AppBar
-        position="static"
-        style={{ backgroundColor: "white", color: "black" }}
-      >
+      <CustomizedAppBar>
         <Container maxWidth="xl">
           <Toolbar disableGutters>
-            <div
-              className="items"
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                width: "40%",
-              }}
-            >
-              <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+            <div className="Header-items">
+              {/* <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}> */}
+              <div className="d-lg-none d-md-flex flex-grow-1">
                 <IconButton
                   size="large"
                   aria-label="account of current user"
@@ -144,7 +264,7 @@ function Navbar() {
                   open={Boolean(anchorElNav)}
                   onClose={handleCloseNavMenu}
                   sx={{
-                    display: { xs: "block", md: "none" },
+                    display: { xs: "block" },
                   }}
                 >
                   {pages.map((page, index) => (
@@ -167,145 +287,54 @@ function Navbar() {
                     </MenuItem>
                   ))}
                 </Menu>
-              </Box>
-              <Typography
-                variant="h5"
-                noWrap
-                component="a"
-                href=""
-                sx={{
-                  mr: 2,
-                  display: { xs: "flex", md: "none" },
-                  flexGrow: 1,
-                  fontFamily: "monospace",
-                  fontWeight: 700,
-                  letterSpacing: ".3rem",
-                  color: "inherit",
-                  textDecoration: "none",
-                }}
-              ></Typography>
-              <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-                {pages.map((page, index) => (
-                  <CustomizedButton
-                    className="NavbarItems"
-                    key={page.label + index}
-                    // onClick={handleCloseNavMenu}
-                    sx={{
-                      my: 2,
-                      color: "#000000",
-                      display: "block",
-                      fontSize: "14px",
-                      fontFamily: "SF-Body-font",
-                      textTransform: "initial",
-                      fontWeight: "600",
-                      marginRight: "1px",
-                      boxSizing: "border-box",
-
-                      "&::after": {
-                        content: '""',
-                        display: "block",
-                        borderRadius: "1px",
-                        marginBottom: "2px",
-                      },
-                      "&:hover::after": {
-                        borderBottom: "2px solid black",
-                        marginBottom: "0px",
-                      },
-                    }}
-                    onMouseOver={(e) => {
-                      handleClick(e);
-                      let pagesTemp = JSON.parse(JSON.stringify(pages));
-                      pagesTemp = pagesTemp.map((item, subindex) => {
-                        if (subindex === index) {
-                          item.isSelected = true;
-                          // console.log(0);
-                        } else {
-                          item.isSelected = false;
-                          // console.log(1);
-                        }
-                        return item;
-                      });
-                      setTimeout(() => {
-                        setPages(pagesTemp);
-                      }, 100);
-                    }}
-                    onMouseOut={() => {
-                      let pagesTemp = JSON.parse(JSON.stringify(pages));
-                      pagesTemp = pagesTemp.map((item, subindex) => {
-                        item.isSelected = false;
-                        return item;
-                      });
-                      setTimeout(() => {
-                        setPages(pagesTemp);
-                      }, 100);
-                    }}
-                  >
-                    {page.label}
-
-                    {page?.isSelected ? (
-                      <KeyboardArrowUpIcon fontSize="small" />
-                    ) : (
-                      <KeyboardArrowDownIcon fontSize="small" />
-                    )}
-                  </CustomizedButton>
-                ))}
-              </Box>
+              </div>
+              {/* </Box> */}
+              {/* <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}> */}
+              <div className="d-none d-lg-flex flex-grow-1">
+                {/* <div className="d-lg-none d-md-flex flex-grow-1"> */}
+                <MegaMenu
+                  model={pages}
+                  orientation="horizontal"
+                  breakpoint="96px"
+                  className="MegaMenu"
+                />
+              </div>
+              {/* </Box> */}
             </div>
-            <div
-              className="logo"
-              style={{
-                display: "flex",
-                justifyContent: "flex-start",
-                alignItems: "center",
-                width: "40%",
-              }}
-            >
-              <Typography
-                sx={{
-                  display: "flex",
-                  textAlign: "center",
-                  fontSize: "30px",
-                  fontWeight: "bold",
-                  fontFamily: "SF-Body-font",
-                  color: "#000000",
-                }}
+            <div className="logo justify-content-start">
+              <Typography className="logoTypography">Anime</Typography>
+            </div>
+            <div className="search_section col-md-1 d-flex justify-content-end">
+              <Tooltip title="Search" className="d-flex justify-content-center">
+                <IconButton>
+                  <SearchIcon />
+                </IconButton>
+              </Tooltip>
+              <Tooltip
+                title="Account"
+                className="d-lg-flex d-none d-md-none justify-content-center"
               >
-                Anime Verse
-              </Typography>
-            </div>
-            <div
-              className="search_section"
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                width: "20%",
-              }}
-            >
-              <Tooltip title="Search">
-                <IconButton className="Tooltip">
-                  <SearchIcon style={{ color: "#3d3d3d" }} />
+                <IconButton>
+                  <PersonOutlineIcon />
                 </IconButton>
               </Tooltip>
-              <Tooltip title="Account">
+              <Tooltip
+                title="Wishlist"
+                className="d-lg-flex d-none d-md-none justify-content-center"
+              >
                 <IconButton>
-                  <PersonOutlineIcon style={{ color: "#3d3d3d" }} />
+                  <StarBorderIcon />
                 </IconButton>
               </Tooltip>
-              <Tooltip title="Wishlist">
+              <Tooltip title="Cart" className="d-flex justify-content-center">
                 <IconButton>
-                  <StarBorderIcon style={{ color: "#3d3d3d" }} />
-                </IconButton>
-              </Tooltip>
-              <Tooltip title="Cart">
-                <IconButton>
-                  <ShoppingBagOutlinedIcon style={{ color: "#3d3d3d" }} />
+                  <ShoppingBagOutlinedIcon className="d-flex justify-content-center" />
                 </IconButton>
               </Tooltip>
             </div>
           </Toolbar>
         </Container>
-      </AppBar>
+      </CustomizedAppBar>
     </div>
   );
 }
