@@ -5,15 +5,43 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import GoogleIcon from '@mui/icons-material/Google';
+import { useFormik } from 'formik';
+import { LoginSchema } from './FormikYup';
+import { useDispatch } from 'react-redux';
+
 
 const Login = () => {
-
+  const dispatch = useDispatch()
   const { LoginStyle } = data
-  return (<LoginStyle>
+  const initialValues={
+    email:"",
+    password:"",
+  }
+  const { values, handleBlur, touched, handleSubmit, handleChange, errors } = useFormik({
+    initialValues,
+    validationSchema: LoginSchema,
+
+
+    onSubmit: (values, action) => {
+        if (values) {
+            dispatch(Login(values))
+            action.resetForm()
+        } else {
+            console.log(errors)
+        }
+    }
+
+})
+// console.log(errors)
+
+
+return (<LoginStyle>
+
     <div className='container'  >
+    <form onSubmit={handleSubmit}>
       <h1>Log In</h1>
 
-      <div className='home'>
+      <div className='home my-3'>
         <span className='mouse'>Home</span>
         <span > <ArrowForwardIosIcon className='icon' /> </span>
         <span>Account</span>
@@ -22,16 +50,19 @@ const Login = () => {
       <div className='col-sm-12 col-md-10 col-lg-8'>
         <div className='row justify-content-center loginGap'>
           <div className='col-sm-12 col-md-8 col-lg-5 my-5 text-start main '>
-            <h4>Log In</h4>
+            <h4>Log In </h4>
             <div className='textInput mt-4 d-flex flex-column  '>
-              <TextField id="outlined-basic" label="Email" variant="outlined" className='textFiled my-2   ' />
+              <TextField size='small' id="outlined-basic" label="Email" variant="outlined" name='email'  className='textFiled my-2' type='text' value={values.name} autoComplete='off' onChange={handleChange} onBlur={handleBlur} />
+              <div className='form-error'>{errors.email && touched.email ? (<p className='form-error'>{errors.email}</p>) : null}</div>
+              {/* <p className='form-error'>Please Enter Valid Email</p> */}
 
-              <TextField id="outlined-basic" label="Password" variant="outlined" className='textFiled my-2 ' />
-
+              <TextField size='small' type='password' id="outlined-basic" label="Password" variant="outlined" className='textFiled my-2 '  name='password' value={values.password} autoComplete='off'  onChange={handleChange} onBlur={handleBlur}/>
+              <div className='form-error'>{errors.password && touched.password ? (<p >{errors.password}</p>) : null}</div>
+              {/* <p className='form-error'>Password cannot be empty</p> */}
 
               <div className='forgotPassword my-4'>Forgot your password?</div>
 
-              <Button className="Register text-start" variant="contained">
+              <Button type='submit' className="Register text-start" variant="contained">
               Sign In
             </Button>
 
@@ -64,6 +95,7 @@ const Login = () => {
         </div>
       </div>
       </div>
+      </form>
     </div>
 
 

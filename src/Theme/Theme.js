@@ -7,6 +7,6 @@ btnFacebookbgcolorblue:"#3b5998",
 btnFacebookbodercolor:"#294968",
 btnGoolebgcolorred:"#c23321",
 btnGoolebgbodercolor:"#dd4b39",
-,
+
   },
 };

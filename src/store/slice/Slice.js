@@ -1,22 +1,77 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
+// import { intansce } from "../../axios";
 
-const initialState = {
-  value: 0,
-}
-
-export const counterSlice = createSlice({
-  name: 'counter',
-  initialState,
-  reducers: {
-    increment: (state) => {
-      
-      state.value += 1
-    },
+export const login = createAsyncThunk("Login", async (data, { rejectWithValue }) => {
     
-  },
+   if (data.email && data.password) { 
+                data = {...data,isLogin:true}
+            }
+    const result = await axios.post("/Authentication", data)
+
+    try {
+        console.log("getting response:",result)
+        return result.data
+
+    } catch (error) {
+        return rejectWithValue(error)
+    }
 })
 
-// Action creators are generated for each case reducer function
-export const { increment } = counterSlice.actions
+// export const getUser = createAsyncThunk("Adding User", async(data, {rejectWithValue})=>{
+//     const response = await instance.post("/users",data)
+//       try {
+//         console.log(response)
+//         return response.data
+  
+//       } catch (error) {
+//         console.log(error)
+//         return rejectWithValue(error.response)
+//       }
+//   })
 
-export default counterSlice.reducer
+
+
+
+
+const initialState = {
+    email: "",
+    password: "",
+    isLogin: false
+}
+    
+
+const Slice = createSlice({
+    name: "user",
+    initialState,
+    reducers: {
+        
+    },
+    extraReducers:{
+        [login.pending]: () => {
+
+            console.log("pending data")
+        },
+        [login.fulfilled]: (state, {payload}) => {
+            // console.log(action)
+            console.log("storing in state:", payload)
+            // state.email = payload.email
+            // state.password = payload.password
+            // if (state.email && state.password) {
+            //     state.isLogin = true
+            // }
+            const {email,password,id, isLogin} = payload
+            state={...state,email,password,id,isLogin}
+            return state
+        },
+        [login.rejected]: (state, action) => {
+            console.log(action.payload)
+
+        }
+
+    },
+
+})
+
+export default Slice.reducer;
+// export const { login } = Slice.actions

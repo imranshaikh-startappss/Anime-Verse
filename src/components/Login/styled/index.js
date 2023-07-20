@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
 const LoginStyle = styled.div`
+
+font-family:Imported_footer;
+
  .container {
     text-align:center;
     
@@ -13,16 +16,13 @@ const LoginStyle = styled.div`
     color:${({ theme }) => theme.Colors.fade_black};
      cursor: pointer;
      } 
- .textInput{
-    ${'' /* width: 80%; */}
-    
- }    
+     
  .loginGap{
     width:auto;
  }
  
   .forgotPassword{
-        text-decoration: underline ;     }
+        text-decoration: underline      }
  }
  .forgotPassword:hover{
    
@@ -35,9 +35,19 @@ const LoginStyle = styled.div`
     
     &:hover{
         background-color: ${({ theme }) => theme.Colors.black};
-        transform:scale(1.1);
+        transform:scale(1.05);
     }
+
 }
+.form-error{
+    display:flex;
+    font-size: small;
+    font-weight: 600;
+    color:#bf1c1c;
+    height:14px;
+    position: relative !important;
+    bottom: 5px !important;
+   }
    .facebook{
     display: flex;
     justify-content: space-between;
@@ -56,7 +66,10 @@ const LoginStyle = styled.div`
     &:hover{
         background-color: ${({ theme }) => theme.Colors.btnGoolebgbodercolor};
    }
+
+   
    }
+
 
 `
 export const data = {
