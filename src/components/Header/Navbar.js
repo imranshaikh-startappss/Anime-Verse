@@ -19,8 +19,9 @@ import "primeicons/primeicons.css";
 import styled from "styled-components";
 import Drawer from "@mui/material/Drawer";
 import Button from "@mui/material/Button";
-import { TextField } from "@mui/material";
-import InputAdornment from "@mui/material/InputAdornment";
+// import { TextField } from "@mui/material";
+// import InputAdornment from "@mui/material/InputAdornment";
+import Search from "./Search";
 
 const CustomizedAppBar = styled(AppBar)({
   position: "static",
@@ -31,6 +32,7 @@ const CustomizedAppBar = styled(AppBar)({
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [selectedMainMenuIndex, setselectedMainMenuIndex] = React.useState("");
+  const [showSearchIcon, setShowSearchIcon] = React.useState(true);
 
   const pages = [
     {
@@ -226,6 +228,9 @@ function Navbar() {
     //   ],
     // },
   ];
+  const showSearchOption = () => {
+    setShowSearchIcon(!showSearchIcon);
+  };
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -240,46 +245,26 @@ function Navbar() {
   };
 
   return (
-    <div className="HeaderNavbar">
-      <CustomizedAppBar>
-        <Container maxWidth="xl">
-          <Toolbar disableGutters>
-            <div className="Header-items">
-              <div className="d-lg-none d-md-flex flex-grow-1">
-                <IconButton onClick={handleOpenNavMenu}>
-                  <MenuIcon />
-                </IconButton>
-                <Drawer
-                  open={Boolean(anchorElNav)}
-                  onClose={handleCloseNavMenu}
-                >
-                  {selectedMainMenuIndex === ""
-                    ? pages.map((page, index) => (
-                        <MenuItem
-                          key={index}
-                          onClick={() => {
-                            handleClickNavmainMenu(index);
-                          }}
-                        >
-                          <Typography
-                            sx={{
-                              width: "18.75rem",
-                              display: "flex",
-                              justifyContent: "space-between",
-                              padding: "15px 0px",
-                            }}
-                          >
-                            {page.label}
-                            <KeyboardArrowRightIcon />
-                          </Typography>
-                        </MenuItem>
-                      ))
-                    : pages?.[selectedMainMenuIndex]?.items?.map(
-                        (subPage, subIndex) => (
+    <>
+      <div className="HeaderNavbar">
+        <CustomizedAppBar>
+          <Container maxWidth="xl">
+            <Toolbar disableGutters>
+              <div className="Header-items">
+                <div className="d-lg-none d-md-flex flex-grow-1">
+                  <IconButton onClick={handleOpenNavMenu}>
+                    <MenuIcon />
+                  </IconButton>
+                  <Drawer
+                    open={Boolean(anchorElNav)}
+                    onClose={handleCloseNavMenu}
+                  >
+                    {selectedMainMenuIndex === ""
+                      ? pages.map((page, index) => (
                           <MenuItem
-                            key={subIndex}
+                            key={index}
                             onClick={() => {
-                              // handleClickNavmainMenu(subIndex);
+                              handleClickNavmainMenu(index);
                             }}
                           >
                             <Typography
@@ -290,117 +275,93 @@ function Navbar() {
                                 padding: "15px 0px",
                               }}
                             >
-                              {subPage[0]?.label}
+                              {page.label}
                               <KeyboardArrowRightIcon />
                             </Typography>
                           </MenuItem>
-                        )
-                      )}
-                  <Typography>
-                    <h1>My Account</h1>
-                    <Button variant="contained">Login</Button>
-                    <br />
-                    <Button variant="contained">Register</Button>
-                  </Typography>
-                </Drawer>
+                        ))
+                      : pages?.[selectedMainMenuIndex]?.items?.map(
+                          (subPage, subIndex) => (
+                            <MenuItem
+                              key={subIndex}
+                              onClick={() => {
+                                // handleClickNavmainMenu(subIndex);
+                              }}
+                            >
+                              <Typography
+                                sx={{
+                                  width: "18.75rem",
+                                  display: "flex",
+                                  justifyContent: "space-between",
+                                  padding: "15px 0px",
+                                }}
+                              >
+                                {subPage[0]?.label}
+                                <KeyboardArrowRightIcon />
+                              </Typography>
+                            </MenuItem>
+                          )
+                        )}
+                    <Typography>
+                      <h1>My Account</h1>
+                      <Button variant="contained">Login</Button>
+                      <br />
+                      <Button variant="contained">Register</Button>
+                    </Typography>
+                  </Drawer>
+                </div>
+                <div className="d-none d-lg-flex flex-grow-1">
+                  <MegaMenu
+                    model={pages}
+                    orientation="horizontal"
+                    breakpoint="96px"
+                    className="MegaMenu"
+                  />
+                </div>
               </div>
-              <div className="d-none d-lg-flex flex-grow-1">
-                <MegaMenu
-                  model={pages}
-                  orientation="horizontal"
-                  breakpoint="96px"
-                  className="MegaMenu"
-                />
+              <div className="logo justify-content-start">
+                <Typography className="logoTypography">Anime</Typography>
               </div>
-            </div>
-            <div className="logo justify-content-start">
-              <Typography className="logoTypography">Anime</Typography>
-            </div>
-            <div className="search_section col-md-1 d-flex justify-content-end">
-              <Tooltip title="Search" className="d-flex justify-content-center">
-                <IconButton>
-                  <SearchIcon />
-                </IconButton>
-              </Tooltip>
-              <Tooltip
-                title="Account"
-                className="d-lg-flex d-none d-md-none justify-content-center"
-              >
-                <IconButton>
-                  <PersonOutlineIcon />
-                </IconButton>
-              </Tooltip>
-              <Tooltip
-                title="Wishlist"
-                className="d-lg-flex d-none d-md-none justify-content-center"
-              >
-                <IconButton>
-                  <StarBorderIcon />
-                </IconButton>
-              </Tooltip>
-              <Tooltip title="Cart" className="d-flex justify-content-center">
-                <IconButton>
-                  <ShoppingBagOutlinedIcon className="d-flex justify-content-center" />
-                </IconButton>
-              </Tooltip>
-            </div>
-          </Toolbar>
-        </Container>
-      </CustomizedAppBar>
-      <CustomizedAppBar>
-        <Container maxWidth="xl">
-          <div className="row">
-            <div className="d-flex mt-3">
-              <div className="d-md-flex d-none d-sm-none justify-content-start col-lg-2 col-md-2">
-                <h1>
-                  <b>koovs</b>
-                </h1>
-              </div>
-              <div className="d-flex justify-content-center col-lg-8 col-md-8 col-sm-12 col-xs-12 pt-2">
-                <TextField
-                  id="outlined-basic"
-                  label="Search"
-                  variant="outlined"
-                  className="InputField"
-                  size="small"
-                  InputProps={{
-                    endAdornment: (
-                      <InputAdornment position="end">
-                        <SearchIcon />
-                      </InputAdornment>
-                    ),
-                  }}
-                />
-              </div>
-              <div className="d-md-flex d-none d-sm-none justify-content-end col-lg-2 col-md-2">
-                <Tooltip title="Account" className="header-search-items">
+              <div className="search_section col-md-1 d-flex justify-content-end">
+                {showSearchIcon ? (
+                  <Tooltip
+                    title="Search"
+                    className="d-flex justify-content-center"
+                  >
+                    <IconButton onClick={showSearchOption}>
+                      <SearchIcon />
+                    </IconButton>
+                  </Tooltip>
+                ) : (
+                  <Search />
+                )}
+                <Tooltip
+                  title="Account"
+                  className="d-lg-flex d-none d-md-none justify-content-center"
+                >
                   <IconButton>
                     <PersonOutlineIcon />
                   </IconButton>
                 </Tooltip>
-                <Tooltip title="Wishlist" className="header-search-items">
+                <Tooltip
+                  title="Wishlist"
+                  className="d-lg-flex d-none d-md-none justify-content-center"
+                >
                   <IconButton>
                     <StarBorderIcon />
                   </IconButton>
                 </Tooltip>
-                <Tooltip title="Cart" className="header-search-items">
+                <Tooltip title="Cart" className="d-flex justify-content-center">
                   <IconButton>
-                    <ShoppingBagOutlinedIcon />
+                    <ShoppingBagOutlinedIcon className="d-flex justify-content-center" />
                   </IconButton>
                 </Tooltip>
               </div>
-            </div>
-            <div className="Search-Btn text-center">
-              <p>
-                Popular Searches : <Button>T-Shirt</Button>
-                <Button>Blue</Button>
-                <Button>Jacket</Button>
-              </p>
-            </div>
-          </div>
-        </Container>
-      </CustomizedAppBar>
-    </div>
+            </Toolbar>
+          </Container>
+        </CustomizedAppBar>
+      </div>
+    </>
   );
 }
 export default Navbar;
