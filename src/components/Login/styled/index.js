@@ -12,20 +12,25 @@ font-family:Imported_footer;
  .icon{
     height:${({ theme }) => theme.Colors.height}}
 
-.mouse:hover{
+.mouse{color:black;
+    text-decoration: none; 
+
+&:hover{
     color:${({ theme }) => theme.Colors.fade_black};
-     cursor: pointer;
-     } 
+         cursor: pointer;
+     } }
      
  .loginGap{
     width:auto;
  }
  
   .forgotPassword{
-        text-decoration: underline      }
+        text-decoration: underline ;    
+        color:${({ theme }) => theme.Colors.black};
+         }
  }
  .forgotPassword:hover{
-   
+   color:${({ theme }) => theme.Colors.black};
     cursor: pointer;
  }
 .Register {
@@ -38,6 +43,28 @@ font-family:Imported_footer;
         transform:scale(1.05);
     }
 
+}
+.password-Para{
+    white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+        margin-right: -34px;
+
+}
+.restpassword-btn{
+    display:flex;
+    justify-content:space-between;
+
+
+} 
+.btn-cancel{
+    background-color:white;
+    color:black;
+    &:hover{
+       background-color:white;
+       transform:scale(1.05);
+    }
+    
 }
 .form-error{
     display:flex;
