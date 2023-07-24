@@ -1,15 +1,17 @@
 import React from "react";
-import {StyledVideoPage} from './styled/index.js'
+import { StyledVideoPage } from "./styled/index.js";
+import { Content } from "./styled/index.js";
 
-const VideoPage = ({src,content,loadingbtn}) => {
-    
+const VideoPage = ({ src }) => {
   return (
-    <StyledVideoPage >
-      <div className="home">
-        <video src={src} autoPlay loop muted /> 
-        {content}
-        {loadingbtn}
-      </div>
+    <StyledVideoPage>
+        <video src={src} autoPlay loop muted />
+        <Content>
+          <h1>The Anime Club</h1>
+          <p>Limited Stocks Available</p>
+          <button>Shop Now</button>
+        </Content>
+      
     </StyledVideoPage>
   );
 };

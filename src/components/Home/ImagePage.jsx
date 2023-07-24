@@ -1,6 +1,5 @@
 import React from "react";
 import { ImageTage,MainDiv,Button,ShopNowlink } from "./styled/index.js";
-// import Narutopic from '../../asset/narutopic.jpg'
 import Narutopic from "../../asset/Naruto1.jpg";
 import { Typography  } from "@mui/material";
 
