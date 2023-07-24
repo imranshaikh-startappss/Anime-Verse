@@ -22,16 +22,9 @@ const CustomizedAppBar = styled(AppBar)({
 });
 
 function Search() {
-  const [searchMenuOpen, searchMenuClose] = React.useState(null);
-  const handleCloseSearchMenu = () => {
-    searchMenuClose(null);
-  };
   return (
     <>
-      <CustomizedAppBar
-        open={Boolean(searchMenuOpen)}
-        onClose={handleCloseSearchMenu}
-      >
+      <CustomizedAppBar>
         <Container maxWidth="xl">
           <div className="row">
             <div className="d-flex mt-3">
@@ -40,7 +33,7 @@ function Search() {
                   <b>Anime</b>
                 </h1>
               </div>
-              <div className="d-flex justify-content-center col-lg-8 col-md-8 col-sm-12 col-xs-12 pt-2">
+              <div className="d-flex justify-content-center col-lg-8 col-md-8 col-sm-12 pt-2">
                 <TextField
                   id="outlined-basic"
                   label="Search"

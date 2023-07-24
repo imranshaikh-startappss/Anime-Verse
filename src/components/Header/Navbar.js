@@ -22,16 +22,54 @@ import Button from "@mui/material/Button";
 // import { TextField } from "@mui/material";
 // import InputAdornment from "@mui/material/InputAdornment";
 import Search from "./Search";
+import { useEffect } from "react";
+import { useRef } from "react";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 const CustomizedAppBar = styled(AppBar)({
   position: "static",
   backgroundColor: "white !important",
   color: "black !important",
 });
+const CustomizedLoginButton = styled(Button)({
+  width: "100% !important",
+  color: "#ffffff !important",
+  fontSize: "14px !important",
+  padding: "8.75px 28px !important",
+  backgroundColor: "#000000 !important",
+  textTransform: "capitalize !important",
+  marginBottom: "15px !important",
+  border: "1px solid red !important",
+  borderRadius: "10px !important",
+  "&:hover": {},
+});
+const CustomizedRegisterButton = styled(Button)({
+  width: "100% !important",
+  color: "#000000 !important",
+  fontSize: "14px !important",
+  padding: "8.75px 28px !important",
+  backgroundColor: "#ffffff !important",
+  textTransform: "capitalize !important",
+  border: "1px solid red !important",
+  borderRadius: "10px !important",
+  "&:hover": {
+    backgroundColor: "#000000 !important",
+    color: "#ffffff !important",
+  },
+});
+const CustomizedBackButton = styled(Button)({
+  display: "flex !important",
+  justifyContent: "flex-start !important",
+  alignItems: "center !important",
+  color: "#000000 !important",
+  fontWeight: "bold !important",
+  // marginBottom: "40px !impotrant",
+});
 
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [selectedMainMenuIndex, setselectedMainMenuIndex] = React.useState("");
+  const [selectedMainMenuItems, setselectedMainMenuItems] = React.useState("");
   const [showSearchIcon, setShowSearchIcon] = React.useState(true);
 
   const pages = [
@@ -243,11 +281,25 @@ function Navbar() {
   const handleClickNavmainMenu = (index) => {
     setselectedMainMenuIndex(index);
   };
-
+  // const handleClickNavmainMenuItems = (index) => {
+  //   setselectedMainMenuItems(index);
+  // };
+  const searchMenuRef = useRef();
+  useEffect(() => {
+    let handler = (event) => {
+      if (!searchMenuRef.current.contains(event.target)) {
+        if (!showSearchIcon) setShowSearchIcon(!showSearchIcon);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    return () => {
+      document.removeEventListener("mousedown", handler);
+    };
+  });
   return (
     <>
       <div className="HeaderNavbar">
-        <CustomizedAppBar>
+        <CustomizedAppBar ref={searchMenuRef}>
           <Container maxWidth="xl">
             <Toolbar disableGutters>
               <div className="Header-items">
@@ -259,55 +311,121 @@ function Navbar() {
                     open={Boolean(anchorElNav)}
                     onClose={handleCloseNavMenu}
                   >
-                    {selectedMainMenuIndex === ""
-                      ? pages.map((page, index) => (
+                    {selectedMainMenuItems === "" && (
+                      <>
+                        {selectedMainMenuIndex === ""
+                          ? pages.map((page, index) => (
+                              <>
+                                <MenuItem
+                                  key={index}
+                                  onClick={() => {
+                                    handleClickNavmainMenu(index);
+                                  }}
+                                >
+                                  <Typography
+                                    sx={{
+                                      width: "18.75rem",
+                                      display: "flex",
+                                      justifyContent: "space-between",
+                                      padding: "10px 0px",
+                                      // marginTop: "20px",
+                                    }}
+                                  >
+                                    {page.label}
+                                    <KeyboardArrowRightIcon />
+                                  </Typography>
+                                </MenuItem>
+                                {index === pages.length - 1 && (
+                                  <div className="container">
+                                    <h4>My Account</h4>
+                                    <CustomizedLoginButton variant="contained">
+                                      Login
+                                    </CustomizedLoginButton>
+                                    <CustomizedRegisterButton variant="contained">
+                                      Register
+                                    </CustomizedRegisterButton>
+                                  </div>
+                                )}
+                              </>
+                            ))
+                          : pages?.[selectedMainMenuIndex]?.items?.map(
+                              (subPage, subIndex) => (
+                                <>
+                                  {subIndex === 0 && (
+                                    <CustomizedBackButton
+                                      size="small"
+                                      onClick={() => {
+                                        setselectedMainMenuIndex("");
+                                      }}
+                                    >
+                                      <ArrowBackIcon /> Back
+                                    </CustomizedBackButton>
+                                  )}
+                                  <MenuItem
+                                    key={subIndex}
+                                    onClick={() => {
+                                      setselectedMainMenuItems(subIndex);
+                                    }}
+                                  >
+                                    <Typography
+                                      sx={{
+                                        width: "18.75rem",
+                                        display: "flex",
+                                        justifyContent: "space-between",
+                                        padding: "15px 0px",
+                                      }}
+                                    >
+                                      {subPage[0]?.label}
+                                      <KeyboardArrowRightIcon />
+                                    </Typography>
+                                  </MenuItem>
+                                </>
+                              )
+                            )}
+                      </>
+                    )}
+
+                    {pages?.[selectedMainMenuIndex]?.items?.[
+                      selectedMainMenuItems
+                    ]?.[0]?.items?.map((subPagesPage, subPagesIndex) => {
+                      return (
+                        <>
+                          {subPagesIndex === 0 && (
+                            <CustomizedBackButton
+                              size="small"
+                              onClick={() => {
+                                setselectedMainMenuItems("");
+                              }}
+                            >
+                              <ArrowBackIcon /> Back
+                            </CustomizedBackButton>
+                          )}
                           <MenuItem
-                            key={index}
+                            key={subPagesIndex}
                             onClick={() => {
-                              handleClickNavmainMenu(index);
+                              // handleClickNavmainMenuItems(subPagesIndex);
                             }}
                           >
                             <Typography
                               sx={{
                                 width: "18.75rem",
                                 display: "flex",
-                                justifyContent: "space-between",
-                                padding: "15px 0px",
+                                justifyContent: "flex-start",
+                                padding: "5px 0px",
                               }}
                             >
-                              {page.label}
-                              <KeyboardArrowRightIcon />
+                              {subPagesPage?.label}
                             </Typography>
                           </MenuItem>
-                        ))
-                      : pages?.[selectedMainMenuIndex]?.items?.map(
-                          (subPage, subIndex) => (
-                            <MenuItem
-                              key={subIndex}
-                              onClick={() => {
-                                // handleClickNavmainMenu(subIndex);
-                              }}
-                            >
-                              <Typography
-                                sx={{
-                                  width: "18.75rem",
-                                  display: "flex",
-                                  justifyContent: "space-between",
-                                  padding: "15px 0px",
-                                }}
-                              >
-                                {subPage[0]?.label}
-                                <KeyboardArrowRightIcon />
-                              </Typography>
-                            </MenuItem>
-                          )
-                        )}
-                    <Typography>
+                        </>
+                      );
+                    })}
+                    {/* <Typography>
                       <h1>My Account</h1>
                       <Button variant="contained">Login</Button>
                       <br />
                       <Button variant="contained">Register</Button>
-                    </Typography>
+                    </Typography> */}
                   </Drawer>
                 </div>
                 <div className="d-none d-lg-flex flex-grow-1">
