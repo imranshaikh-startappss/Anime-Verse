@@ -1,12 +1,27 @@
-// @import './Theme/Theme.scss' ;
+@import './Theme/Theme.scss' ;
 
 
 .home{
     width: 100%;
     height: 100vh;
 }
-// video{
-//     width: 100%;
-//     height: 90%;
-//     object-fit: cover;
-// }
+// ===Carousel Custom Css===
+.carousel.carousel-slider .control-arrow {
+  display: none !important
+}
+.dot{
+    margin-bottom: 11px !important
+}
+.carousel .control-dots{
+    width: auto !important;
+    background: transparent !important;
+    position: absolute !important;
+    right: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    bottom: 286px !important;
+
+}
+.carousel-status{
+    display: none   ;
+}

@@ -16,17 +16,17 @@ export const StyledVideoPage = styled.div`
   }
   button:hover {
     cursor: pointer;
-    box-shadow: 10px;
+    box-shadow: 0.6rem;
     transition: all 0.55s;
     transform: scale(1.1);
   }
   button {
-    padding: 5px;
-    border-radius: 6px;
+    padding: 0.3rem;
+    border-radius: 0.375rem;
     color: ${(props) => props.theme.primary};
     background-color: black;
     border: none;
-    font-size: 17px;
+    font-size: 1.06rem;
     font-family: system-ui;
   }
 `;
@@ -55,31 +55,31 @@ export const ImageTage = styled.div`
   position: relative;
   span {
     position: absolute;
-    right: 145px;
-    bottom: 63px;
+    right: 9.063rem;
+    bottom: 3.938rem;
     text-decoration: none !important;
     color: white;
   }
 `;
 export const MainDiv = styled.div`
   position: absolute;
-  bottom: 76px;
-  left: 74px;
-  font-size: 21px;
+  bottom: 4.75rem;
+  left: 4.625rem;
+  font-size:  1.313rem;
   font-weight: 500;
   color: ${(props) => props.theme.primary};
 `;
 export const Button = styled.button`
-  padding: 5px;
-  border-radius: 6px;
+  padding: 0.313rem;
+  border-radius: 0.375rem;
   color: ${(props) => props.theme.primary};
   background-color: black;
   border: none;
-  font-size: 17px;
+  font-size: 1.063rem;
   font-family: system-ui;
   :hover {
     cursor: pointer;
-    box-shadow: 10px;
+    box-shadow: 0.625rem;
     transition: all 0.55s;
     transform: scale(1.1);
     background-color: ${(props) => props.theme.primary};
@@ -87,14 +87,14 @@ export const Button = styled.button`
 `;
 export const ShopNowlink = styled.p`
   position: absolute;
-  right: 67px;
-  bottom: 47px;
+  right: 4.188rem;
+  bottom: 2.938rem;
   text-decoration: none !important;
-  color: white;
+  color: ${(props) => props.theme.primary};
 
   :hover {
     display: inline-block;
-    color: white;
+    color: ${(props) => props.theme.primary};
     cursor: pointer;
   }
 
@@ -103,7 +103,7 @@ export const ShopNowlink = styled.p`
     position: absolute;
     width: 100%;
     transform: scaleX(0);
-    height: 2px;
+    height: 0.125rem;
     bottom: 0;
     left: 0;
     background-color: white;
@@ -115,10 +115,10 @@ export const ShopNowlink = styled.p`
     position: absolute;
     width: 100%;
     transform: scaleX(0);
-    height: 2px;
+    height: 0.125rem;
     bottom: 0;
     left: 0;
-    background-color: white;
+    background-color: ${(props) => props.theme.primary};
     transform-origin: bottom left;
     transition: transform 0.35s ease-out;
   }
@@ -134,51 +134,9 @@ export const ShopNowlink = styled.p`
   span {
     text-decoration: none !important;
   }
+
+
 `;
 
-// ====Button Component====//
-// ===Loader Section===
-export const Loader = styled.div`
-// display: flex;
-// justify-content: center;
-// align-items: center;
-// min-height: 100vh;
-// background:white;
-// svg{
-//   position: relative;
-// width: 150px;
-// height: 150px;
-// animation: rotate 2s linear infinite;
-// }
-// // @keyframes rotate{
-// //   0%{
-// //     transform:rotate(0deg);
-// //   }
-// //   100%{
-// //     transform:rotate(360deg);
-// //   }
+// ====Carousel====/
 
-// }
-//   circle {
-//     width: 100%;
-//     height: 100%;
-//     fill: none;
-//     stroke-width: 10;
-//     stroke: black;
-//     stroke-linecap:round;
-//     transform:translate(5px,5px);
-//     stroke-dasharray:440;
-//     stroke-dashoffset:440;
-//     animation:animate 4s linear infinite;
-//   }
-//   @keyframes animate{
-//     0%
-//     {
-//     stroke-dashoffset: 440;
-//     }
-//     100%
-//     {
-//     stroke-dashoffset: 0;
-//     }
-//   }
-`;
