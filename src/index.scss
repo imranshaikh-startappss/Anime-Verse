@@ -19,9 +19,80 @@
     right: 0 !important;
     display: flex !important;
     flex-direction: column !important;
-    bottom: 286px !important;
+    // bottom: 286px !important;
+    top: 45vh !important;
 
 }
 .carousel-status{
     display: none   ;
 }
+
+// ====Mixin===
+
+@mixin textUnderline {
+    position: absolute;
+    right: 4.188rem;
+    bottom: 2.938rem;
+    text-decoration: none !important;
+    color: $primary;
+  
+    :hover {
+      display: inline-block;
+      color: $primary;
+      cursor: pointer;
+    }
+  
+    :before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      transform: scaleX(0);
+      height: 0.125rem;
+      bottom: 0;
+      left: 0;
+      background-color: white;
+      transform-origin: bottom right;
+      transition: transform 0.35s ease-in;
+    }
+    :after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      transform: scaleX(0);
+      height: 0.125rem;
+      bottom: 0;
+      left: 0;
+      background-color: $primary;
+      transform-origin: bottom left;
+      transition: transform 0.35s ease-out;
+    }
+  
+    :hover:after {
+      transform: scaleX(1);
+      transform-origin: bottom right;
+    }
+    :hover:before {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
+    span {
+      text-decoration: none !important;
+    }
+}
+@mixin ButtonTransition{
+    padding: 0.313rem;
+  border-radius: 0.375rem;
+  color:  $primary;
+  background-color: black;
+  border: none;
+  font-size: 1.063rem;
+  font-family: system-ui;
+  :hover {
+    cursor: pointer;
+    box-shadow: 0.625rem;
+    transition: all 0.55s;
+    transform: scale(1.1);
+    background-color:  $primary;
+    color:black
+}
+};
