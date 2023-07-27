@@ -22,6 +22,25 @@ function Navbar() {
   const [showSearchIcon, setShowSearchIcon] = React.useState(true);
   const [pages, setPages] = React.useState([]);
 
+  const headerItems = [
+    // { title: "Search", icon: <SearchIcon /> },
+    {
+      title: "Account",
+      icon: <PersonOutlineIcon />,
+      className: "d-lg-flex d-none d-md-none justify-content-center",
+    },
+    {
+      title: "Wishlist",
+      icon: <StarBorderIcon />,
+      className: "d-lg-flex d-none d-md-none justify-content-center",
+    },
+    {
+      title: "Cart",
+      icon: <ShoppingBagOutlinedIcon />,
+      className: "d-flex justify-content-center",
+    },
+  ];
+
   useEffect(() => {
     async function getData() {
       let data = await axios.get("data.json");
@@ -79,27 +98,19 @@ function Navbar() {
                 ) : (
                   <Search />
                 )}
-                <Tooltip
-                  title="Account"
-                  className="d-lg-flex d-none d-md-none justify-content-center"
-                >
-                  <IconButton>
-                    <PersonOutlineIcon />
-                  </IconButton>
-                </Tooltip>
-                <Tooltip
-                  title="Wishlist"
-                  className="d-lg-flex d-none d-md-none justify-content-center"
-                >
-                  <IconButton>
-                    <StarBorderIcon />
-                  </IconButton>
-                </Tooltip>
-                <Tooltip title="Cart" className="d-flex justify-content-center">
-                  <IconButton>
-                    <ShoppingBagOutlinedIcon className="d-flex justify-content-center" />
-                  </IconButton>
-                </Tooltip>
+                {headerItems.map((items, index) => {
+                  return (
+                    <>
+                      <Tooltip
+                        key={index}
+                        title={items.title}
+                        className={items.className}
+                      >
+                        <IconButton>{items.icon}</IconButton>
+                      </Tooltip>
+                    </>
+                  );
+                })}
               </div>
             </Toolbar>
           </Container>

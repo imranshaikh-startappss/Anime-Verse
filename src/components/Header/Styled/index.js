@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { AppBar, Button } from "@mui/material";
-
+import Typography from "@mui/material/Typography";
 export const CustomizedAppBar = styled(AppBar)({
   position: "static",
   backgroundColor: "white !important",
@@ -41,4 +41,10 @@ export const CustomizedBackButton = styled(Button)({
   // marginBottom: "40px !impotrant",
   marginTop: "10px !important",
   background: "none !important",
+});
+export const CustomizedTypography = styled(Typography)({
+  width: "18.75rem",
+  display: "flex",
+  justifyContent: "space-between",
+  padding: "10px 0px",
 });

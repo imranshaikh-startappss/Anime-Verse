@@ -6,15 +6,17 @@ import SearchIcon from "@mui/icons-material/Search";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
-import "primereact/resources/themes/lara-light-indigo/theme.css";
-import "primereact/resources/primereact.min.css";
-import "primeicons/primeicons.css";
-import { TextField } from "@mui/material";
 import InputAdornment from "@mui/material/InputAdornment";
+import { TextField } from "@mui/material";
 import { NavLink } from "react-router-dom";
 import { CustomizedAppBar } from "./Styled";
 
 function Search() {
+  const headerItems = [
+    { title: "Account", icon: <PersonOutlineIcon /> },
+    { title: "Wishlist", icon: <StarBorderIcon /> },
+    { title: "Cart", icon: <ShoppingBagOutlinedIcon /> },
+  ];
   return (
     <>
       <CustomizedAppBar>
@@ -45,21 +47,19 @@ function Search() {
                 />
               </div>
               <div className="d-md-flex d-none d-sm-none justify-content-end col-lg-2 col-md-2">
-                <Tooltip title="Account" className="header-search-items">
-                  <IconButton>
-                    <PersonOutlineIcon />
-                  </IconButton>
-                </Tooltip>
-                <Tooltip title="Wishlist" className="header-search-items">
-                  <IconButton>
-                    <StarBorderIcon />
-                  </IconButton>
-                </Tooltip>
-                <Tooltip title="Cart" className="header-search-items">
-                  <IconButton>
-                    <ShoppingBagOutlinedIcon />
-                  </IconButton>
-                </Tooltip>
+                {headerItems.map((items, index) => {
+                  return (
+                    <>
+                      <Tooltip
+                        key={index}
+                        title={items.title}
+                        className="header-search-items"
+                      >
+                        <IconButton>{items.icon}</IconButton>
+                      </Tooltip>
+                    </>
+                  );
+                })}
               </div>
             </div>
             <div className="Search-Btn text-center">

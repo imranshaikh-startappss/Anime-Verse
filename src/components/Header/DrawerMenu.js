@@ -1,5 +1,4 @@
 import * as React from "react";
-import Typography from "@mui/material/Typography";
 import MenuItem from "@mui/material/MenuItem";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import Drawer from "@mui/material/Drawer";
@@ -11,6 +10,7 @@ import { useEffect } from "react";
 import { CustomizedLoginButton } from "./Styled";
 import { CustomizedRegisterButton } from "./Styled";
 import { CustomizedBackButton } from "./Styled";
+import { CustomizedTypography } from "./Styled";
 
 function DrawerMenu() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -55,17 +55,10 @@ function DrawerMenu() {
                           handleClickNavmainMenu(index);
                         }}
                       >
-                        <Typography
-                          sx={{
-                            width: "18.75rem",
-                            display: "flex",
-                            justifyContent: "space-between",
-                            padding: "10px 0px",
-                          }}
-                        >
+                        <CustomizedTypography>
                           {page.label}
                           <KeyboardArrowRightIcon />
-                        </Typography>
+                        </CustomizedTypography>
                       </MenuItem>
 
                       {index === pages.length - 1 && (
@@ -100,17 +93,10 @@ function DrawerMenu() {
                             setselectedMainMenuItems(subIndex);
                           }}
                         >
-                          <Typography
-                            sx={{
-                              width: "18.75rem",
-                              display: "flex",
-                              justifyContent: "space-between",
-                              padding: "10px 0px",
-                            }}
-                          >
+                          <CustomizedTypography>
                             {subPage[0]?.label}
                             <KeyboardArrowRightIcon />
-                          </Typography>
+                          </CustomizedTypography>
                         </MenuItem>
                       </>
                     )
@@ -138,16 +124,9 @@ function DrawerMenu() {
                     // handleClickNavmainMenuItems(subPagesIndex);
                   }}
                 >
-                  <Typography
-                    sx={{
-                      width: "18.75rem",
-                      display: "flex",
-                      justifyContent: "flex-start",
-                      // padding: "10px 0px",
-                    }}
-                  >
+                  <CustomizedTypography>
                     {subPagesPage?.label}
-                  </Typography>
+                  </CustomizedTypography>
                 </MenuItem>
               </>
             );
