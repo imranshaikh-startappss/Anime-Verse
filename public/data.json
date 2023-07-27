@@ -1,0 +1,174 @@
+[
+    {
+      "label": "Men",
+      "items": [
+        [
+          {
+            "label": "Clothing",
+            "items": [
+              { "label": "New in" },
+              { "label": "View all" },
+              { "label": "T-Shirts" },
+              { "label": "Jackets & Coats" },
+              { "label": "Hoodies & Sweatshirts" },
+              { "label": "Shorts" },
+              { "label": "Co-ord sets" },
+              { "label": "Gift card" }
+            ]
+          }
+        ],
+        [
+          {
+            "label": "Footwear",
+            "items": [
+              { "label": "View all" },
+              { "label": "Sneakers" },
+              { "label": "Slider" }
+            ]
+          }
+        ],
+        [
+          {
+            "label": "Accessories",
+            "items": [
+              { "label": "Sunglasses" },
+              { "label": "Pins" }
+            ]
+          }
+        ],
+        [
+          {
+            "label": "Brands",
+            "items": [
+              { "label": "Adidas" },
+              { "label": "New Balance" },
+              { "label": "Essentials by Koovs" },
+              { "label": "BALL Copenhagen" },
+              { "label": "Bravesoul" },
+              { "label": "The couture club" },
+              { "label": "Arkk copenhagen" },
+              { "label": "SHU" },
+              { "label": "Nike" }
+            ]
+          }
+        ]
+      ]
+    },
+    {
+      "label": "Women",
+      "items": [
+        [
+          {
+            "label": "Clothing",
+            "items": [
+              { "label": "New in" },
+              { "label": "View all" },
+              { "label": "Lounge & sleep wear" },
+              { "label": "Lingerie & innerwear" },
+              { "label": "Tops" },
+              { "label": "T-Shirts" },
+              { "label": "Sweatshirts" },
+              { "label": "Bodysuit" },
+              { "label": "Outerwear" },
+              { "label": "Jeans" },
+              { "label": "Dress" },
+              { "label": "Shorts" }
+            ]
+          }
+        ],
+        [
+          {
+            "label": "Shoes",
+            "items": [
+              { "label": "New in" },
+              { "label": "View all" },
+              { "label": "Sneakers" },
+              { "label": "Heels" },
+              { "label": "Sliders & flip flops" },
+              { "label": "Boots" }
+            ]
+          }
+        ],
+        [
+          {
+            "label": "Brands",
+            "items": [
+              { "label": "Adidas" },
+              { "label": "New Balance" },
+              { "label": "Bravesoul" },
+              { "label": "Koovs sport" },
+              { "label": "Tigerbear" },
+              { "label": "Koovs" },
+              { "label": "KDenim" },
+              { "label": "Public desire" },
+              { "label": "Keen" }
+            ]
+          }
+        ],
+        [
+          {
+            "label": "Accesssories",
+            "items": [
+              { "label": "Sunglasses" },
+              { "label": "Pins" },
+              { "label": "Caps & Hats" }
+            ]
+          }
+        ]
+      ]
+    },
+    {
+      "label": "Unisex",
+      "items": [
+        [
+          {
+            "label": "Clothing",
+            "items": [
+              { "label": "New In" },
+              { "label": "View all" },
+              { "label": "T-shirts" },
+              { "label": "Sweatshirts and Hoodies" },
+              { "label": "Joggers" },
+              { "label": "Pants" },
+              { "label": "Shorts" },
+              { "label": "Outerwear" }
+            ]
+          }
+        ],
+        [
+          {
+            "label": "Footwear",
+            "items": [
+              { "label": "Slides" }
+            ]
+          }
+        ],
+        [
+          {
+            "label": "Accessories",
+            "items": [
+              { "label": "View all" },
+              { "label": "Caps and Hats" },
+              { "label": "Sunglasses" }
+            ]
+          }
+        ]
+      ]
+    },
+    {
+      "label": "Artist collab",
+      "items": [
+        [
+          {
+            "label": "Brands",
+            "items": [
+              { "label": "George Thomas" },
+              { "label": "Boomranng" }
+            ]
+          }
+        ]
+      ]
+    }
+   
+  ]
+  

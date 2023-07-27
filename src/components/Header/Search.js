@@ -1,7 +1,6 @@
 import React from "react";
 import IconButton from "@mui/material/IconButton";
 import Container from "@mui/material/Container";
-import AppBar from "@mui/material/AppBar";
 import Tooltip from "@mui/material/Tooltip";
 import SearchIcon from "@mui/icons-material/Search";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
@@ -10,16 +9,10 @@ import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 import "primereact/resources/themes/lara-light-indigo/theme.css";
 import "primereact/resources/primereact.min.css";
 import "primeicons/primeicons.css";
-import styled from "styled-components";
-import Button from "@mui/material/Button";
 import { TextField } from "@mui/material";
 import InputAdornment from "@mui/material/InputAdornment";
-
-const CustomizedAppBar = styled(AppBar)({
-  position: "static",
-  backgroundColor: "white !important",
-  color: "black !important",
-});
+import { NavLink } from "react-router-dom";
+import { CustomizedAppBar } from "./Styled";
 
 function Search() {
   return (
@@ -36,14 +29,16 @@ function Search() {
               <div className="d-flex justify-content-center col-lg-8 col-md-8 col-sm-12 pt-2">
                 <TextField
                   id="outlined-basic"
-                  label="Search"
+                  // label="Search"
                   variant="outlined"
                   className="InputField"
                   size="small"
                   InputProps={{
                     endAdornment: (
                       <InputAdornment position="end">
-                        <SearchIcon />
+                        <NavLink to="/">
+                          <SearchIcon />
+                        </NavLink>
                       </InputAdornment>
                     ),
                   }}
@@ -68,11 +63,15 @@ function Search() {
               </div>
             </div>
             <div className="Search-Btn text-center">
-              <p>
-                Popular Searches : <Button>T-Shirt</Button>
-                <Button>Blue</Button>
-                <Button>Jacket</Button>
-              </p>
+              <span>Popular Searches: </span>
+              {/* <Button>T-Shirt</Button>
+              <Button>Blue</Button>
+              <Button>Jacket</Button> */}
+              <div className="SearchSectionBtn">
+                <NavLink to="/">Blue</NavLink>
+                <NavLink to="/">Jacket</NavLink>
+                <NavLink to="/">T-Shirt</NavLink>
+              </div>
             </div>
           </div>
         </Container>
