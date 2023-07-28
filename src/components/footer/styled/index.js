@@ -1,21 +1,36 @@
 import styled from "styled-components";
 
 export const StyleFooter = styled.div`
-  font-family: Imported_footer;
+  font-family: Imported_;
+  overflow-y: hidden;
+  overflow-x: hidden;
+
+  .socialIcons {
+    cursor: pointer;
+  }
+
+  .last-section {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 35px 0 35px;
+  }
 
   footer {
-    padding: 5rem 0;
+    padding-top: 10px;
+
     background-color: #f5f5f5;
   }
   footer h5 {
-    font-weight: 600;
-    font-size: 14px;
+    font-weight: 500;
+    font-size: 0.875rem;
+    font-family: Imported_;
   }
   p {
     font-weight: 300;
-    font-size: 13px;
-    color: rgb(77, 77, 77);
-    line-height: 15px;
+    font-size: 0.813rem;
+    color: rgb(125, 124, 124);
+    line-height: 0.938 rem;
+    font-family: Imported_;
   }
 
   footer li {
@@ -25,17 +40,28 @@ export const StyleFooter = styled.div`
     margin: 0.5rem 0;
   }
 
-  .col {
+  .MuiPaper-root {
+    background-color: #f5f5f5 !important;
+  }
+
+  .beGeoA {
+    padding-top: 0.438rem !important;
+  }
+  .MuiGrid-spacing-xs-3 {
+    margin: 0rem !important;
+  }
+
+  .col-lg-3 {
     border-right: 1px solid rgb(166 166 166 / 46%);
-    padding-left: 40px;
+    ${"" /* padding-left: 3 rem; */}
   }
 
   a {
     text-decoration: none;
     color: rgb(125, 124, 124);
     font-weight: 400;
-    font-size: 14px;
-    line-height: 24px;
+    font-size: 0.875rem;
+    line-height: 2 rem;
   }
 
   a:hover {
@@ -49,7 +75,7 @@ export const StyleFooter = styled.div`
     position: absolute;
     width: 100%;
     transform: scaleX(0);
-    height: 2px;
+    height: 0.13rem;
     bottom: 0;
     left: 0;
     background-color: black;
@@ -62,75 +88,16 @@ export const StyleFooter = styled.div`
     transform-origin: bottom left;
   }
 
-  span {
+  ${
+    "" /* span {
     font-weight: 400;
-    font-size: 14px;
+    font-size: 0.875rem;
     color: rgb(125, 124, 124);
-  }
-  ${
-    "" /* h5{
-    font-weight:bold;
-    font-size:15px;
-  } */
-  }
-
-  ${
-    "" /* form{
-   padding-bottom:15px;
-   display:flex;
-   align-item:center;
-   justify-content:space-between;
-   border-bottom: 1px solid rgb(56, 54, 54);
-   margin-bottom:50px;
-
-  }
-
-  .mail{
-    text-align:center;
-
-  } */
-  }
-
-
-${
-    "" /* 
-  input{
-    width:100%;
-    background:white;
-    color:rgb(56, 54, 54);
-    border:0;
-    outline:none;
-    height:40px;
-  }
-
- 
-  
-  i{
-    font-size:18px;
-    margin-right:10px;
-    border:0;
-    outline:none;
-
-    background-color:white;
-  }
-
-  form button{
-    background:transparent;
-    border:0;
-    outline:none;
-    background:white;
   } */
   }
 `;
+
 export const Ullist = styled.ul`
   padding-left: 0 !important;
-  padding-top: 5px;
+  padding-top: 0.3 rem;
 `;
-
-// export const li = styled.li`
-// style:normal;
-// font-weight:400;
-// font-size:14px;
-// color:#000000;
-// line-height:24px;
-// `
