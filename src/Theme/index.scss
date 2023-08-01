@@ -6,6 +6,12 @@
     align-items: center;
     width: $width;
 }
+
+*{
+    box-sizing:border-box!important ;
+    margin: 0;
+    padding: 0;
+}
 .Header-items{
     width: 45%;
     // @media only screen and (max-width: 600px) and (min-width: 350px){
