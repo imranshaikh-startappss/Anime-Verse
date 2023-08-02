@@ -8,7 +8,7 @@ import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import LoginHeadre from './LoginHeadre';
 import Register from './Register';
-import FacebookLogin from './FacebookLogin';
+import LoginFacebook from './LoginFacebook';
 import GoogleLogin from './GoogleLogin';
 
 const Login = () => {
@@ -51,7 +51,7 @@ const Login = () => {
                 <h4>Log In </h4>
                 <div className='textInput mt-4 d-flex flex-column  '>
                   <TextField size='small' id="outlined-basic" label="Email" variant="outlined" name='email' className='textFiled my-2' type='text' value={values.name} autoComplete='off' onChange={handleChange} onBlur={handleBlur} />
-                  <div className='form-error'>{errors.email && touched.email ? (<p className='form-error'>{errors.email}</p>) : null}</div>
+                  <div className='form-error d-flex'>{errors.email && touched.email ? (<p className='form-error d-flex'>{errors.email}</p>) : null}</div>
 
                   <TextField size='small' type='password' id="outlined-basic" label="Password" variant="outlined" className='textFiled my-2 ' name='password' value={values.password} autoComplete='off' onChange={handleChange} onBlur={handleBlur} />
                   <div className='form-error'>{errors.password && touched.password ? (<p >{errors.password}</p>) : null}</div>
@@ -61,7 +61,7 @@ const Login = () => {
                   <Button type='submit' className="Register text-start" variant="contained">
                     Sign In
                   </Button>
-                  <FacebookLogin />
+                  <LoginFacebook />
                   <GoogleLogin />
                 </div>
               </div>

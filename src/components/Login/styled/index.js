@@ -17,7 +17,7 @@ font-family:Imported_footer;
 
 &:hover{
     color:${({ theme }) => theme.Colors.fade_black};
-         cursor: pointer;
+         cursor:${({ theme }) => theme.Colors.cursorPointer} ;
      } }
      
  .loginGap{
@@ -31,12 +31,14 @@ font-family:Imported_footer;
  }
  .forgotPassword:hover{
    color:${({ theme }) => theme.Colors.black};
-    cursor: pointer;
+  cursor:${({ theme }) => theme.Colors.cursorPointer};
  }
 .Register {
     background-color:${({ theme }) => theme.Colors.black} ;
     text-transform: none;
         transition:transform 500ms;
+       
+
     
     &:hover{
         background-color: ${({ theme }) => theme.Colors.black};
@@ -44,40 +46,57 @@ font-family:Imported_footer;
     }
 
 }
+
+.RegisterForm{
+    background-color:${({ theme }) => theme.Colors.btnColor} ;
+    color:${({ theme }) => theme.Colors.black};
+    text-transform: none;
+        transition:transform 500ms;
+       width: ${({ theme }) => theme.Colors.registerWidth};
+       border: 0.063rem solid;
+
+    
+    &:hover{
+        background-color: ${({ theme }) => theme.Colors.black};
+        color: ${({ theme }) => theme.Colors.btnColor};
+        transform:scale(1.05);
+    }
+
+}
+
+.res{
+   margin-left:30%;
+}
+.paratag{
+    text-align: justify
+}
+
+
 .password-Para{
     white-space: nowrap;
         overflow: hidden;
         text-overflow: clip;
-        margin-right: -34px;
-
-}
-.restpassword-btn{
-    display:flex;
-    justify-content:space-between;
-
+        margin-right: ${({ theme }) => theme.Colors.marginRight} ;
 
 } 
 .btn-cancel{
-    background-color:white;
-    color:black;
+    background-color:${({ theme }) => theme.Colors.btnColor};
+    color:${({ theme }) => theme.Colors.black};
     &:hover{
-       background-color:white;
+       background-color:${({ theme }) => theme.Colors.btnColor};
        transform:scale(1.05);
     }
     
 }
 .form-error{
-    display:flex;
-    font-size: small;
-    font-weight: 600;
-    color:#bf1c1c;
-    height:14px;
-    position: relative !important;
-    bottom: 5px !important;
+    font-size: ${({ theme }) => theme.Colors.fontSizeInput} ;
+    font-weight: ${({ theme }) => theme.Colors.fontWightInput};
+    color:${({ theme }) => theme.Colors.fontColorInput};
+    height: ${({ theme }) => theme.Colors.fontHeightInput} ;
+    position: relative !important; 
+    bottom: ${({ theme }) => theme.Colors.bottomInput} !important;
    }
    .facebook{
-    display: flex;
-    justify-content: space-between;
     text-transform: none;
     background-color: ${({ theme }) => theme.Colors.btnFacebookbgcolorblue};
     &:hover{
@@ -86,17 +105,14 @@ font-family:Imported_footer;
 
 }
    .google{
-    display: flex;
-    justify-content: space-between;
+    
     text-transform: none;
     background-color: ${({ theme }) => theme.Colors.btnGoolebgcolorred};
     &:hover{
         background-color: ${({ theme }) => theme.Colors.btnGoolebgbodercolor};
    }
-
    
    }
-
 
 `
 export const data = {

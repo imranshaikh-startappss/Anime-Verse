@@ -42,7 +42,7 @@ const GoogleLogin = () => {
     };
     return (
         <>
-            <Button onClick={login} className="google text-start" variant="contained">
+            <Button onClick={login} className="google text-start  justify-content-between"   variant="contained">
                 Sign in with Google
                 <GoogleIcon />
 

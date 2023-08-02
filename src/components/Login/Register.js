@@ -1,5 +1,7 @@
+import { Button } from '@mui/material'
 import React from 'react'
-import Button from '@mui/material/Button';
+import { NavLink } from 'react-router-dom'
+
 
 
 const Register = () => {
@@ -9,9 +11,10 @@ const Register = () => {
             <h4>New Customer</h4>
             <p className='p my-4'>Sign up for early Sale access plus tailored new arrivals, trends and promotions. To opt out, click unsubscribe in our emails.</p>
 
-            <Button className="Register text-start" variant="contained">
+        <NavLink to="/registerform">   <Button  className="Register text-start" variant="contained">
               Register
             </Button>
+            </NavLink>
           </div>
     </>
   )
