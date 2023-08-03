@@ -1,19 +1,49 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+// import GlobalInstance from "../../axios/GlobalInstance";
 import MyfetchMiddleWare from "../../axios/GlobalInstance";
+
+// const instance = new GlobalInstance();
+
+// export const Product = createAsyncThunk(
+//   "users/fetchByIdStatus",
+//   async (options) => {
+//     try {
+//       let { method, url, base, config } = options;
+
+//       console.log(
+//         "method:",
+//         method,
+//         "base:",
+//         base,
+//         "url:",
+//         url,
+//         "options:",
+//         config
+//       );
+//       return instance.get(url, config);
+//     } catch (error) {
+//       return error;
+//     }
+//   }
+// );
 
 export const Product = createAsyncThunk(
   "users/fetchByIdStatus",
   async (options) => {
-    let { method, url, config } = options;
-
-    console.log("method:", method, "url:", url, "options:", config);
-
-    console.log("METHOD:", method);
-    // return await MyfetchMiddleWare(url, options, method)
-    // .then(res=>res).catch(error=>error)
-    let res = await MyfetchMiddleWare(url, config, method);
     try {
-      return { ...res };
+      let { method, url, base, config } = options;
+
+      console.log(
+        "method:",
+        method,
+        "base:",
+        base,
+        "url:",
+        url,
+        "options:",
+        config
+      );
+      return MyfetchMiddleWare(url, base, config, method);
     } catch (error) {
       return error;
     }

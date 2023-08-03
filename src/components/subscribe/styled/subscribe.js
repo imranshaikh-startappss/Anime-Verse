@@ -28,7 +28,7 @@ const SubscribeForm = () => {
   return (
     <StyledSubsc>
       {isSubmitted ? (
-        <div>
+        <div className="subMsg">
           <h5>Thank you for subscribing!</h5>
         </div>
       ) : (
@@ -44,6 +44,7 @@ const SubscribeForm = () => {
                 <Field
                   type="email"
                   name="email"
+                  autoComplete="off"
                   placeholder="Enter your email"
                   required="email"
                 />

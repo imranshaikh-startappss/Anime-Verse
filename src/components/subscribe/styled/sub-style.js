@@ -31,7 +31,7 @@ export const StyledSubsc = styled.div`
     outline: none;
   }
 
-  .h-2 {
+  .subMsg {
     color: green;
     background: white;
   }

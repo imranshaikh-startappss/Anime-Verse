@@ -6,42 +6,12 @@ import LinksComponent from "../links/styled/links";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import { NavLink } from "react-router-dom";
-// import { useState } from "react";
-// import { useEffect } from "react";
-
-// const aboutLinks = [
-//   { id: 1, title: "Our story", url: "#our story" },
-//   { id: 2, title: "Contact us", url: "#contact us" },
-//   { id: 3, title: "Careers", url: "#careers" },
-//   { id: 4, title: "Privacy policy", url: "#privacy policy" },
-// ];
-
-// const supportLinks = [
-//   { id: 5, title: "Payment", url: "#payment" },
-//   { id: 6, title: "Return/Exchange", url: "#return/exchange" },
-//   { id: 7, title: "Shipment", url: "#shipment" },
-//   { id: 8, title: "Terms&condition", url: "#terms&condition" },
-// ];
+import { useSelector } from "react-redux";
 
 function Footer() {
-  // const [about, setAbout] = useState({});
-  // const [support, setSupport] = useState({});
-  // const fetchData = async () => {
-  //   const response = await fetch("linkData.json");
-  //   try {
-  //     const jsonData = await response.json();
-  //     // console.log("jsonDAta", jsonData);
-  //     setAbout(jsonData.aboutLinks);
-  //     setSupport(jsonData.supportLinks);
-  //   } catch (error) {
-  //     console.error("Error fetching data:", error);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   fetchData();
-  // }, []);
-  // console.log("support links: ", support, "aboutLInks: ", about);
+  const data = useSelector((state) => {
+    return state.counter.LINKS?.[0];
+  });
 
   return (
     <StyleFooter>
@@ -49,11 +19,11 @@ function Footer() {
         <div className="section">
           <div className="row">
             <div className="col-lg-3 col-md-4 col-sm-6 p-5 ">
-              <LinksComponent links={"aboutLinks"} title={"About"} />
+              <LinksComponent links={data?.aboutLinks} title={"About"} />
             </div>
 
             <div className="col-lg-3 col-md-4 col-sm-6 p-5">
-              <LinksComponent links={"supportLinks"} title={"Support"} />
+              <LinksComponent links={data?.supportLinks} title={"Support"} />
             </div>
 
             <div className="col-lg-3 col-md-4 col-sm-6 p-5">

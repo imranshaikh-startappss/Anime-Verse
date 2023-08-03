@@ -11,12 +11,19 @@ const Products = () => {
   const data = useSelector((state) => {
     return state.counter;
   });
-
-  console.log("data",data)
+  console.log(data)
 
   useEffect(() => {
-    dispatch(Product({url:"/users"}))    
-  },[]);
+    // dispatch(Product({method:"POST", url:"/users",base:0, config:{
+    //   body: {
+    //     name: "TestNow",
+    //     email: "Email@email.com",
+    //     password: "PASSWORD",
+    //     confirm_password: "PASSWORD"
+    //   }
+    // } }))  
+    dispatch(Product({url: '/users'}))  
+  },[dispatch]);
   return (
     <Style>
       <div className="main">

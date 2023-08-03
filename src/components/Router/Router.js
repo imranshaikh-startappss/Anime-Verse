@@ -8,7 +8,7 @@ import Footer from "../footer/Footer";
 const Router = () => {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <BrowserRouter>
         <Routes>
           {/* <Route path="/" element={<Home />} />
