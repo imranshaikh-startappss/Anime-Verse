@@ -4,22 +4,22 @@ import { useState } from "react";
 import { useEffect } from "react";
 
 const LinksComponent = (props) => {
-  const { links, title } = props;
-  const [data, setData] = useState();
-  const fetchData = async () => {
-    const response = await fetch("linkData.json");
-    try {
-      const jsonData = await response.json();
-      console.log("jsonDAta", jsonData);
-      setData(jsonData.links);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
-  useEffect(() => {
-    fetchData();
-  }, []);
-  console.log("support links: ", data, "aboutLInks: ", data);
+  // const { links, title } = props;
+  // const [data, setData] = useState();
+  // const fetchData = async () => {
+  //   const response = await fetch("linkData.json");
+  //   try {
+  //     const jsonData = await response.json();
+  //     console.log("jsonDAta", jsonData);
+  //     setData(jsonData.links);
+  //   } catch (error) {
+  //     console.error("Error fetching data:", error);
+  //   }
+  // };
+  // useEffect(() => {
+  //   fetchData();
+  // }, []);
+  // console.log("support links: ", data, "aboutLInks: ", data);
   // const { links, title } = props;
   // const [data, setData] = useState("");
   // useEffect(() => {
