@@ -18,7 +18,7 @@ const Login = () => {
     email: "",
     password: "",
   }
-  const { values, handleBlur, touched, handleSubmit, handleChange, errors, handleReset } = useFormik({
+  const { values, handleBlur, touched, handleSubmit, handleChange, errors,  } = useFormik({
     initialValues,
     validationSchema: LoginSchema,
 
@@ -32,7 +32,7 @@ const Login = () => {
       } else {
         console.log(errors)
       }
-      handleReset();
+      
     }
 
   })
@@ -40,7 +40,7 @@ const Login = () => {
 
   return (<LoginStyle>
 
-    <div className='container'  >
+    <div className='container '  >
       <LoginHeadre />
       <form onSubmit={handleSubmit}>
 

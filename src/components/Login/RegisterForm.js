@@ -9,6 +9,7 @@ import { NavLink } from 'react-router-dom';
 import { useFormik } from 'formik';
 import { LoginSchema } from './FormikYup';
 import { useDispatch } from 'react-redux';
+import {Product} from '../../store/slice/Slice';
 
 const RegisterForm = () => {
   
@@ -23,7 +24,7 @@ const RegisterForm = () => {
     password: "",
     
   }
-  const { values, handleBlur, touched, handleSubmit, handleChange, errors, handleReset } = useFormik({
+  const { values, handleBlur, touched, handleSubmit, handleChange, errors} = useFormik({
     initialValues,
     validationSchema: LoginSchema,
 
@@ -34,7 +35,7 @@ const RegisterForm = () => {
       debugger;
       console.log("inside onsubnmit")
       if (values) {
-        dispatch(RegisterForm (values))
+        dispatch(Product({method:"POST",url: "/users" ,config: values}))
         action.resetForm()
       } else {
         console.log(errors)

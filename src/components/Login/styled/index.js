@@ -2,10 +2,13 @@ import styled from "styled-components";
 
 const LoginStyle = styled.div`
 
+
+
 font-family:Imported_footer;
 
  .container {
     text-align:center;
+    margin-top: ${({ theme }) => theme.Colors.loginHeight}};
     
 
 
@@ -45,6 +48,9 @@ font-family:Imported_footer;
         transform:scale(1.05);
     }
 
+}
+#outlined-basic {
+    height:40px;
 }
 
 .RegisterForm{

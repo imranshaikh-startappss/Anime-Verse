@@ -6,7 +6,7 @@ import { data } from './styled'
 const RegisterHeader = () => {
     const { LoginStyle } = data
   return (<LoginStyle>
-    <div className='container my-3'   >
+    <div className='container '   >
     <h1>Register</h1>  
     <div className='home my-3'>
           <NavLink className='mouse' to="/">Home</NavLink>
