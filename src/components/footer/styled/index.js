@@ -2,11 +2,15 @@ import styled from "styled-components";
 
 export const StyleFooter = styled.div`
   font-family: Imported_;
-  overflow-y: hidden;
-  overflow-x: hidden;
+  ${
+    "" /* overflow-y: hidden;
+  overflow-x: hidden; */
+  }
 
   .socialIcons {
     cursor: pointer;
+    display: flex;
+    gap: 0.375rem;
   }
 
   .last-section {
@@ -16,7 +20,11 @@ export const StyleFooter = styled.div`
   }
 
   footer {
-    padding-top: 10px;
+    position: absolute;
+    bottom: 0;
+    padding-top: 0.625 rem;
+    overflow-y: hidden;
+    overflow-x: hidden;
 
     background-color: #f5f5f5;
   }

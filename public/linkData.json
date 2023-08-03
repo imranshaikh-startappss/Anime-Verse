@@ -1,0 +1,16 @@
+{
+    "aboutLinks": [
+      { "id": 1, "title": "Our story", "url": "#our story" },
+      { "id": 2, "title": "Contact us", "url": "#contact us" },
+      { "id": 3, "title": "Careers", "url": "#careers" },
+      { "id": 4, "title": "Privacy policy", "url": "#privacy policy" }
+    ],
+    "supportLinks": [
+      { "id": 5, "title": "Payment", "url": "#payment" },
+      { "id": 6, "title": "Return/Exchange", "url": "#return/exchange" },
+      { "id": 7, "title": "Shipment", "url": "#shipment" },
+      { "id": 8, "title": "Terms&condition", "url": "#terms&condition" }
+    ]
+  
+}
+  

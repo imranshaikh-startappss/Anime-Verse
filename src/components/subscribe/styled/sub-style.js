@@ -11,7 +11,10 @@ export const StyledSubsc = styled.div`
     height: 40px;
   }
 
-  
+  .h5 {
+    background: green;
+    color: green;
+  }
 
   input {
     ${"" /* padding-left: 5px; */}
@@ -32,7 +35,4 @@ export const StyledSubsc = styled.div`
     color: green;
     background: white;
   }
-
-  .Ctxmk .socialIcons {
- 
 `;
