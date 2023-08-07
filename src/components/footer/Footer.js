@@ -18,15 +18,15 @@ function Footer() {
       <footer>
         <div className="section">
           <div className="row">
-            <div className="col-lg-3 col-md-4 col-sm-6 p-5 ">
+            <div className="block col-lg-3 col-md-4 col-sm-6 p-5 ">
               <LinksComponent links={data?.aboutLinks} title={"About"} />
             </div>
 
-            <div className="col-lg-3 col-md-4 col-sm-6 p-5">
+            <div className="block col-lg-3 col-md-4 col-sm-6 p-5">
               <LinksComponent links={data?.supportLinks} title={"Support"} />
             </div>
 
-            <div className="col-lg-3 col-md-4 col-sm-6 p-5">
+            <div className="block col-lg-3 col-md-4 col-sm-6 p-5">
               <Typography variant="h5">Customer care</Typography>
               &nbsp;
               <Typography variant="body2">
@@ -36,7 +36,7 @@ function Footer() {
               </Typography>
             </div>
 
-            <div className="col-lg-3 col-md-4 col-sm-6 p-5">
+            <div className="block col-lg-3 col-md-4 col-sm-6 p-5">
               <Typography variant="h5">Subscribe</Typography>
               &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
               <Typography variant="body2">
@@ -50,7 +50,7 @@ function Footer() {
             <hr />
 
             <div className="col ">
-              <div className="last-section">
+              <div className="last-section d-flex">
                 <div className="socialIcons">
                   <NavLink to="https://www.facebook.com" target="_blank">
                     <FacebookIcon />

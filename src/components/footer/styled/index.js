@@ -2,10 +2,6 @@ import styled from "styled-components";
 
 export const StyleFooter = styled.div`
   font-family: Imported_;
-  ${
-    "" /* overflow-y: hidden;
-  overflow-x: hidden; */
-  }
 
   .socialIcons {
     cursor: pointer;
@@ -14,17 +10,28 @@ export const StyleFooter = styled.div`
   }
 
   .last-section {
-    display: flex;
+    ${"" /* display: flex; */}
+    flex-wrap: wrap;
     justify-content: space-between;
     padding: 0px 35px 0 35px;
   }
+  ${
+    "" /* {
+     @media only screen and (max-width: 700px) {
+    .last-section {
+      flex-direction: column;
+    } 
+  }
+  } */
+  }
 
   footer {
+    min-width: 100vw;
     position: absolute;
     bottom: 0;
     padding-top: 0.625 rem;
-    overflow-y: hidden;
-    overflow-x: hidden;
+    max-height: 100vh;
+    overflow-x: auto;
 
     background-color: #f5f5f5;
   }
@@ -59,7 +66,7 @@ export const StyleFooter = styled.div`
     margin: 0rem !important;
   }
 
-  .col-lg-3 {
+  .block {
     border-right: 1px solid rgb(166 166 166 / 46%);
     ${"" /* padding-left: 3 rem; */}
   }
@@ -94,14 +101,6 @@ export const StyleFooter = styled.div`
   a:hover:after {
     transform: scaleX(1);
     transform-origin: bottom left;
-  }
-
-  ${
-    "" /* span {
-    font-weight: 400;
-    font-size: 0.875rem;
-    color: rgb(125, 124, 124);
-  } */
   }
 `;
 

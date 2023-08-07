@@ -17,7 +17,7 @@ const SubscribeForm = () => {
     resetForm();
   };
 
-  const validationSchema = Yup.object().shape({
+  const validation = Yup.object().shape({
     email: Yup.string().test("Validate Email", (value) => {
       const check =
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -34,7 +34,7 @@ const SubscribeForm = () => {
       ) : (
         <Formik
           initialValues={{ email: "" }}
-          validationSchema={validationSchema}
+          validation={validation}
           onSubmit={handleSubmit}
         >
           {({ isSubmitting }) => (
