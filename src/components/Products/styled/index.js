@@ -1,50 +1,47 @@
 import styled from "styled-components";
-import '../../../Theme/index.scss'
-
 
 const Style = styled.div`
+  .main {
+    margin-top: ${({ theme }) => theme.Dimensions.margin_main_top};
 
-.main{
-    background:#f5f7fa ;
-    width: 100vw;
-    height: 100vh;
-    margin-top: 4rem;
-}
-.MuiContainer-root{
-    display: flex;
-    ${'' /* justify-content: center; */}
-    align-items:center;
-    ${'' /* background-color: red; */}
-    height: 3rem;
+    .container {
+      display: flex;
+      width: 76.875rem;
+      align-items: flex-start;
+      align-content: flex-start;
+      flex-wrap: wrap;
 
-    .container{
+      .w-full {
         display: flex;
-        justify-content: center;
-        align-items: center;
-    
-    a{
-        text-decoration:none;
-        color: black;
-        &:hover{
-            cursor: pointer;
-            color: #999999;
+        width: 38.4375rem;
+        padding: 0rem 0.9375rem 5.20313rem 1.1875rem;
+        align-items: flex-start;
+        flex-shrink: 0;
+        #media-gallery {
+          #swiper-container {
+            #responsive-image {
+            }
+          }
+          .sf-media-nav {
+            .swiper-wrapper {
+              .swiper-side {
+                .sf-prod-media {
+                  #responsive-image {
+                  }
+                }
+              }
+            }
+          }
         }
+      }
     }
+  }
 
-    span{
-        font-size: 1rem;
-        ${'' /* color: blue; */}
-    }
-    .left{
-        display: flex;
-        height: 10rem;
-    }
-    
-    }
-    
-
-    
-}
-`
+  ${
+    "" /* 
+   
+  } */
+  }
+`;
 
 export default Style;
