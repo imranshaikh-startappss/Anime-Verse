@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { useEffect, useRef } from "react";
 import { MegaMenu } from "primereact/megamenu";
 import Toolbar from "@mui/material/Toolbar";
@@ -28,16 +28,19 @@ function Navbar() {
       title: "Account",
       icon: <PersonOutlineIcon />,
       className: "d-lg-flex d-none d-md-none justify-content-center",
+      key: "account", // Add a unique 'key' prop for this item
     },
     {
       title: "Wishlist",
       icon: <StarBorderIcon />,
       className: "d-lg-flex d-none d-md-none justify-content-center",
+      key: "wishlist", // Add a unique 'key' prop for this item
     },
     {
       title: "Cart",
       icon: <ShoppingBagOutlinedIcon />,
       className: "d-flex justify-content-center",
+      key: "cart", // Add a unique 'key' prop for this item
     },
   ];
 
@@ -68,7 +71,10 @@ function Navbar() {
   return (
     <>
       <div className="HeaderNavbar">
-        <CustomizedAppBar ref={searchMenuRef}>
+        <CustomizedAppBar
+          ref={searchMenuRef}
+          sx={{ position: "absolute", top: "51px" }}
+        >
           <Container maxWidth="xl">
             <Toolbar disableGutters>
               <div className="Header-items">
@@ -98,11 +104,11 @@ function Navbar() {
                 ) : (
                   <Search />
                 )}
-                {headerItems.map((items, index) => {
+                {headerItems.map((items) => {
                   return (
                     <>
                       <Tooltip
-                        key={index}
+                        key={items.key}
                         title={items.title}
                         className={items.className}
                       >

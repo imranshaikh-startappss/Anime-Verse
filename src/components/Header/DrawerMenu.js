@@ -26,12 +26,19 @@ function DrawerMenu() {
     getData();
   }, []);
 
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
-
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
+  };
+  // const resetData = () => {
+  //   // Reset all relevant state variables to their initial values
+  //   setselectedMainMenuIndex("");
+  //   setselectedMainMenuItems("");
+  // };
+
+  const handleCloseNavMenu = () => {
+    setselectedMainMenuIndex("");
+    setselectedMainMenuItems("");
+    setAnchorElNav(null);
   };
 
   const handleClickNavmainMenu = (index) => {

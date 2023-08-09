@@ -6,6 +6,7 @@ import { ThemeProvider } from "styled-components";
 import { Theme } from "./Theme/Theme";
 import Store from "./store/Store";
 import { Provider } from "react-redux";
+import "./i18n";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

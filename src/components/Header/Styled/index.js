@@ -1,8 +1,11 @@
 import styled from "styled-components";
 import { AppBar, Button } from "@mui/material";
 import Typography from "@mui/material/Typography";
+
 export const CustomizedAppBar = styled(AppBar)({
-  position: "static",
+  // position: "static",
+  // position: "relative !important",
+  // top: "1px !important",
   backgroundColor: "white !important",
   color: "black !important",
 });
@@ -47,4 +50,13 @@ export const CustomizedTypography = styled(Typography)({
   display: "flex",
   justifyContent: "space-between",
   padding: "10px 0px",
+});
+export const CustomizedMultiLingualButton = styled(Button)({
+  color: "#000000 !important",
+  fontSize: "11px !important",
+  fontWeight: "100 !important",
+  textTransform: "capitalize !important",
+  "&:hover": {
+    backgroundColor: "transparent !important",
+  },
 });

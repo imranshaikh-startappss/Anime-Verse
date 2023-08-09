@@ -13,9 +13,9 @@ import { CustomizedAppBar } from "./Styled";
 
 function Search() {
   const headerItems = [
-    { title: "Account", icon: <PersonOutlineIcon /> },
-    { title: "Wishlist", icon: <StarBorderIcon /> },
-    { title: "Cart", icon: <ShoppingBagOutlinedIcon /> },
+    { id: 1, title: "Account", icon: <PersonOutlineIcon /> },
+    { id: 2, title: "Wishlist", icon: <StarBorderIcon /> },
+    { id: 3, title: "Cart", icon: <ShoppingBagOutlinedIcon /> },
   ];
   return (
     <>
@@ -30,11 +30,9 @@ function Search() {
               </div>
               <div className="d-flex justify-content-center col-lg-8 col-md-8 col-sm-12 pt-2">
                 <TextField
-                  id="outlined-basic"
-                  // label="Search"
-                  variant="outlined"
                   className="InputField"
                   size="small"
+                  placeholder="search"
                   InputProps={{
                     endAdornment: (
                       <InputAdornment position="end">
@@ -47,11 +45,11 @@ function Search() {
                 />
               </div>
               <div className="d-md-flex d-none d-sm-none justify-content-end col-lg-2 col-md-2">
-                {headerItems.map((items, index) => {
+                {headerItems.map((items) => {
                   return (
                     <>
                       <Tooltip
-                        key={index}
+                        key={items.id}
                         title={items.title}
                         className="header-search-items"
                       >
@@ -64,9 +62,6 @@ function Search() {
             </div>
             <div className="Search-Btn text-center">
               <span>Popular Searches: </span>
-              {/* <Button>T-Shirt</Button>
-              <Button>Blue</Button>
-              <Button>Jacket</Button> */}
               <div className="SearchSectionBtn">
                 <NavLink to="/">Blue</NavLink>
                 <NavLink to="/">Jacket</NavLink>
